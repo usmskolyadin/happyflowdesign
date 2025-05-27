@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image";
 import Link from "next/link";
 import { Stars } from "./components/Stars";
@@ -16,7 +18,7 @@ export default function Home() {
   return (
     <div className="">
       <div className="">
-        <header className="max-w-screen-xl max-w-screen-xl mx-auto py-2 lg:ml-50 ml-4">
+        <header className="max-w-screen-xl max-w-screen-xl mx-auto py-2">
           <nav className="flex items-center justify-between">
             <div className="flex items-center">
               <Image 
@@ -132,15 +134,15 @@ export default function Home() {
             </div>
           </div>
           <div className="absolute bg-[#FFCA3B] lg:w-[180px] lg:h-[180px] w-24 h-24 rounded-2xl flex flex-col justify-center items-center lg:bottom-12 lg:right-76 z-20 bottom-32 right-5">
-            <svg xmlns="http://www.w3.org/2000/svg" width="67" height="67" viewBox="0 0 67 67" fill="none">
-              <path d="M16.75 50.25L50.25 16.75M50.25 16.75H25.125M50.25 16.75V41.875" stroke="#2F2929" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <p className="font-semibold text-md">Рассчитать стоимость</p>
+              <svg xmlns="http://www.w3.org/2000/svg" width="67" height="67" viewBox="0 0 67 67" fill="none">
+                <path d="M16.75 50.25L50.25 16.75M50.25 16.75H25.125M50.25 16.75V41.875" stroke="#2F2929" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <p className="font-semibold text-md ml-8">Рассчитать стоимость</p>
           </div>
         </div>
       </section>
-      <section className="py-8 ">
-        <div className="max-w-screen-xl mx-auto items-center lg:ml-50 ml-4">
+      <section className="py-8 w-full">
+        <div className="max-w-screen-xl mx-auto items-center">
             <h1 className="text-4xl font-bold py-4">Персональные проекты под ваш стиль и бюджет</h1>
             <p className="text-xl font-medium">Услуги по проектированию — Продуманный проект — залог идеального ремонта</p>
             <div className="lg:grid lg:grid-cols-3 flex mt-4 gap-4 overflow-x-auto">
@@ -285,7 +287,7 @@ export default function Home() {
             </div>
         </div>
       </section>
-      <section className="max-w-screen-xl mx-auto py-8 lg:ml-50 ml-4">
+      <section className="max-w-screen-xl mx-auto py-8 ">
         <div className="lg:flex justify-between items-center">
               <h1 className="lg:text-3xl text-2xl font-bold py-4">Ввести метраж квартиры для расчета стоимости проектирования</h1>
               <div className="flex">
@@ -301,7 +303,7 @@ export default function Home() {
               </div>
         </div>
       </section>
-      <section className="max-w-screen-xl mx-auto py-10 lg:ml-50 ml-4">
+      <section className="max-w-screen-xl mx-auto py-10 ">
         <h1 className="text-4xl font-bold py-8">Очная консультация и техпроект</h1>
         <div className="flex overflow-hidden rounded-xl lg:h-[550px] h-[200px]">
           <img 
@@ -759,8 +761,8 @@ export default function Home() {
               <div className="flex flex-col w-full">
                 <div className="flex w-2/3">
                   <div>
-                    <div className="flex flex-col">
-                      <div className="w-36 h-36">
+                    <div className="flex gap-2 flex-col items-center justify-start">
+                      <div className="w-24 h-24">
                         <Image 
                           width={100}
                           height={100}
@@ -769,7 +771,7 @@ export default function Home() {
                           className="object-cover w-24 h-24 rounded-2xl"
                         />
                       </div>
-                      <div className="w-36 h-36">
+                      <div className="w-24 h-24">
                         <Image 
                           width={100}
                           height={100}
@@ -778,7 +780,7 @@ export default function Home() {
                           className="object-cover w-24 h-24 rounded-2xl"
                         />
                       </div>
-                      <div className="w-36 h-36">
+                      <div className="w-24 h-24">
                         <Image 
                           width={100}
                           height={100}
@@ -787,7 +789,7 @@ export default function Home() {
                           className="object-cover w-24 h-24 rounded-2xl"
                         />
                       </div>
-                      <div className="w-36 h-36">
+                      <div className="w-24 h-24">
                         <Image 
                           width={100}
                           height={100}
@@ -798,7 +800,7 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                  <div className="w-full h-full">
+                  <div className="w-full h-full lg:ml-2">
                     <img
                         className="object-cover h-96 rounded-2xl" 
                         src={"/ourw.jpg"}
@@ -822,8 +824,8 @@ export default function Home() {
 
         </div>
       </section>
-            <section className="py-8 ">
-        <div className="max-w-screen-xl mx-auto items-center lg:ml-50 ml-4">
+      <section className="py-8 w-full">
+        <div className="max-w-screen-xl mx-auto items-center ">
             <h1 className="text-4xl font-bold py-4">Цены ниже, а услуг больше!</h1>
             <div className="lg:flex">
               <div className="flex grid grid-cols-2 gap-5">
@@ -933,8 +935,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-8 ">
-        <div className="max-w-screen-xl mx-auto items-center lg:ml-50 ml-4">
+      <section className="py-8">
+        <div className="max-w-screen-xl mx-auto items-center">
             <h1 className="text-4xl font-bold py-4">Этапы работы</h1>
             <div className="flex grid grid-cols-3 gap-5">
               <div className="rounded-3xl w-full ">
@@ -1211,20 +1213,40 @@ export default function Home() {
       <section className="py-8 ">
         <div className=" items-center">
             <h1 className="text-4xl font-bold py-4 max-w-screen-xl mx-auto">Используем оборудование этих марок при проведении вашего ремонта</h1>
-            <div className="bg-[#E8F6EF]">
-              <div className="grid-cols-8 grid py-8">
-                <div className="bg-white flex-col flex py-8 items-center rounded-lg">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="128" height="45" viewBox="0 0 128 45" fill="none">
-                    <path d="M2.80737 42.1711H125.205V2.79004H2.80737V42.1711Z" fill="#EC1B24"/>
-                    <path d="M91.3153 42.2062C90.7399 41.9618 89.136 41.1418 88.9278 39.5137L85.9527 42.2101L79.0229 42.2062C78.3372 42.0169 77.0884 41.402 76.6966 39.427L73.8316 42.2022L67.7833 42.2101L65.2 33.8687L62.0044 42.2022H56.2133L57.3029 39.4034C54.9767 41.331 54.2543 42.0012 54.0462 42.2101L49.1243 42.2062C47.2755 41.3547 47.1408 39.3837 47.1408 39.3837C44.7411 41.3389 43.9943 41.9933 43.7739 42.2062L39.4764 42.2022C37.897 41.4651 37.395 39.4704 37.395 39.4704C34.9953 41.2325 33.5996 42.2022 33.5996 42.2022H25.8005L30.4285 30.313H26.3024L21.8336 42.2022H16.0791L21.3561 27.5339H17.5851L11.9653 42.2022H6.21089L12.8224 24.7547H2.78271V19.7207H20.3766L19.3849 22.6733H28.9103L27.8329 25.7087H37.444L33.0363 37.7753H37.5297L41.0313 29.0949C41.0313 29.0949 42.3781 25.7087 45.5247 25.7087H57.658L53.3483 37.862H57.8416L64.7592 19.7207H70.232L66.008 31.7006L72.3012 25.7087H78.8637L70.9544 33.4351L72.1175 37.9488L76.9782 37.9054L81.8266 25.622H87.2994L82.904 37.862H89.1972L92.3315 29.6153H88.6462L90.091 25.622H93.5926L96.0168 19.7207H101.673L99.5184 25.4485H102.849L101.502 29.5285H97.9023L94.9394 37.7753H101.233L104.195 29.8754C104.195 29.8754 105.457 25.7994 109.142 25.7087H120.993L116.598 37.7753H125.217V42.2022H113.721C113.721 42.2022 111.027 41.8553 110.574 39.427L107.783 42.2022H103.84C103.84 42.2022 101.318 41.8553 100.963 39.427L98.0859 42.2062H91.3153ZM110.623 37.9488L113.672 30.313H109.803L106.754 37.9488H110.623ZM47.3857 37.9488L50.4343 30.313H46.5776L43.5168 37.9488H47.3857Z" fill="white"/>
-                    <path d="M82.2673 24.2031L83.8835 19.6895H89.3686L87.7524 24.2031H82.2673Z" fill="white"/>
-                    <path d="M118.827 17.265H117.945V16.4332H118.9C119.084 16.4332 119.402 16.4648 119.402 16.8432C119.402 17.2059 119.108 17.265 118.827 17.265ZM119.769 18.2978L119.745 17.8563C119.733 17.5173 119.573 17.4542 119.414 17.3951C119.586 17.3044 119.794 17.1704 119.794 16.8077C119.794 16.2913 119.328 16.1494 118.863 16.1494H117.565V18.5974H117.945V17.5488H118.863C119.328 17.5488 119.377 17.7854 119.377 17.9864C119.377 18.0771 119.39 18.4476 119.439 18.5974H119.916V18.5422C119.794 18.4831 119.769 18.4358 119.769 18.2978Z" fill="white"/>
-                    <path d="M118.655 19.4291C118.104 19.4291 117.59 19.2163 117.198 18.826C116.806 18.4357 116.586 17.9193 116.586 17.3674C116.586 16.8156 116.806 16.2991 117.198 15.9089C117.59 15.5186 118.104 15.3058 118.655 15.3058C119.206 15.3058 119.732 15.5186 120.112 15.9089C120.504 16.2991 120.724 16.8156 120.724 17.3674C120.724 18.5067 119.794 19.4291 118.655 19.4291ZM120.283 15.7512C119.843 15.3176 119.267 15.0811 118.655 15.0811C117.394 15.0811 116.365 16.106 116.365 17.3674C116.365 17.9785 116.598 18.554 117.039 18.9876C117.467 19.4173 118.043 19.6578 118.655 19.6578C119.267 19.6578 119.843 19.4173 120.283 18.9876C120.712 18.554 120.945 17.9785 120.945 17.3674C120.945 16.7564 120.712 16.1809 120.283 15.7512Z" fill="white"/>
-                  </svg>
-                  <p className="text-[#3CB473] text-md">5 единиц в наличии</p>
-                </div>
+            <div className="bg-[#E8F6EF] overflow-hidden">
+              <div className="relative py-8 h-[240px]"> {/* Фиксированная высота контейнера */}
+                <div className="absolute flex items-center mt-8 top-0 left-0 grid grid-cols-8 gap-4 w-[200%] animate-scroll-horizontal">
+                  {/* Первый набор блоков */}
+                  {[...Array(8)].map((_, i) => (
+                    <div key={`first-${i}`} className="bg-white flex-col flex py-12 items-center rounded-lg">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="128" height="45" viewBox="0 0 128 45" fill="none">
+                        <path d="M2.80737 42.1711H125.205V2.79004H2.80737V42.1711Z" fill="#EC1B24"/>
+                        <path d="M91.3153 42.2062C90.7399 41.9618 89.136 41.1418 88.9278 39.5137L85.9527 42.2101L79.0229 42.2062C78.3372 42.0169 77.0884 41.402 76.6966 39.427L73.8316 42.2022L67.7833 42.2101L65.2 33.8687L62.0044 42.2022H56.2133L57.3029 39.4034C54.9767 41.331 54.2543 42.0012 54.0462 42.2101L49.1243 42.2062C47.2755 41.3547 47.1408 39.3837 47.1408 39.3837C44.7411 41.3389 43.9943 41.9933 43.7739 42.2062L39.4764 42.2022C37.897 41.4651 37.395 39.4704 37.395 39.4704C34.9953 41.2325 33.5996 42.2022 33.5996 42.2022H25.8005L30.4285 30.313H26.3024L21.8336 42.2022H16.0791L21.3561 27.5339H17.5851L11.9653 42.2022H6.21089L12.8224 24.7547H2.78271V19.7207H20.3766L19.3849 22.6733H28.9103L27.8329 25.7087H37.444L33.0363 37.7753H37.5297L41.0313 29.0949C41.0313 29.0949 42.3781 25.7087 45.5247 25.7087H57.658L53.3483 37.862H57.8416L64.7592 19.7207H70.232L66.008 31.7006L72.3012 25.7087H78.8637L70.9544 33.4351L72.1175 37.9488L76.9782 37.9054L81.8266 25.622H87.2994L82.904 37.862H89.1972L92.3315 29.6153H88.6462L90.091 25.622H93.5926L96.0168 19.7207H101.673L99.5184 25.4485H102.849L101.502 29.5285H97.9023L94.9394 37.7753H101.233L104.195 29.8754C104.195 29.8754 105.457 25.7994 109.142 25.7087H120.993L116.598 37.7753H125.217V42.2022H113.721C113.721 42.2022 111.027 41.8553 110.574 39.427L107.783 42.2022H103.84C103.84 42.2022 101.318 41.8553 100.963 39.427L98.0859 42.2062H91.3153ZM110.623 37.9488L113.672 30.313H109.803L106.754 37.9488H110.623ZM47.3857 37.9488L50.4343 30.313H46.5776L43.5168 37.9488H47.3857Z" fill="white"/>
+                        <path d="M82.2673 24.2031L83.8835 19.6895H89.3686L87.7524 24.2031H82.2673Z" fill="white"/>
+                        <path d="M118.827 17.265H117.945V16.4332H118.9C119.084 16.4332 119.402 16.4648 119.402 16.8432C119.402 17.2059 119.108 17.265 118.827 17.265ZM119.769 18.2978L119.745 17.8563C119.733 17.5173 119.573 17.4542 119.414 17.3951C119.586 17.3044 119.794 17.1704 119.794 16.8077C119.794 16.2913 119.328 16.1494 118.863 16.1494H117.565V18.5974H117.945V17.5488H118.863C119.328 17.5488 119.377 17.7854 119.377 17.9864C119.377 18.0771 119.39 18.4476 119.439 18.5974H119.916V18.5422C119.794 18.4831 119.769 18.4358 119.769 18.2978Z" fill="white"/>
+                        <path d="M118.655 19.4291C118.104 19.4291 117.59 19.2163 117.198 18.826C116.806 18.4357 116.586 17.9193 116.586 17.3674C116.586 16.8156 116.806 16.2991 117.198 15.9089C117.59 15.5186 118.104 15.3058 118.655 15.3058C119.206 15.3058 119.732 15.5186 120.112 15.9089C120.504 16.2991 120.724 16.8156 120.724 17.3674C120.724 18.5067 119.794 19.4291 118.655 19.4291ZM120.283 15.7512C119.843 15.3176 119.267 15.0811 118.655 15.0811C117.394 15.0811 116.365 16.106 116.365 17.3674C116.365 17.9785 116.598 18.554 117.039 18.9876C117.467 19.4173 118.043 19.6578 118.655 19.6578C119.267 19.6578 119.843 19.4173 120.283 18.9876C120.712 18.554 120.945 17.9785 120.945 17.3674C120.945 16.7564 120.712 16.1809 120.283 15.7512Z" fill="white"/>
+                      </svg>
+                      <p className="text-[#3CB473] text-md">5 единиц в наличии</p>
+                    </div>
+                  ))}
               </div>
-            </div>
+  </div>
+</div>
+
+{/* Добавьте в ваш CSS или Tailwind конфиг */}
+<style jsx global>{`
+  @keyframes scroll-horizontal {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  .animate-scroll-horizontal {
+    animation: scroll-horizontal 20s linear infinite;
+  }
+`}</style>
         </div>
       </section>
 
