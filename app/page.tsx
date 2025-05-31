@@ -18,19 +18,21 @@ export default function Home() {
   return (
     <div className="">
       <div className="">
-        <header className="max-w-screen-xl max-w-screen-xl mx-auto py-2">
+        <header className="max-w-screen-xl max-w-screen-xl mx-auto py-2 px-4 lg:px-0">
           <nav className="flex items-center justify-between">
             <div className="flex items-center">
               <Image 
-                  src="/logo.png" 
-                  width={100} 
-                  height={100} 
-                  alt="" 
-                  className=""
+                src="/logo.png" 
+                width={100} 
+                height={100} 
+                alt="Логотип компании" 
+                className=""
               />
-              <p className="hidden text-sm w-48 ml-4">Ремонт квартир под ключ с гарантией</p>
+              <div className=""> {/* Скрыто на mobile, видно на md и выше */}
+                <p className="text-sm w-48 ml-4">Ремонт квартир под ключ с гарантией</p>
+              </div>
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center hidden lg:flex">
               <span className="items-center justify-center border rounded-xl p-4 border-[#CEECF0]">
 
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
@@ -42,7 +44,7 @@ export default function Home() {
               <p className="lg:block hidden text-sm ml-4 w-24">Israel, Netanya central district</p>
             </div>
             
-            <div className="flex items-center">
+            <div className="flex items-center hidden lg:flex">
               <span className="items-center justify-center border rounded-xl p-4 border-[#CEECF0]">
 
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
@@ -56,7 +58,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex gap-4">
+            <div className="flex gap-4 hidden lg:flex">
               <div className="flex items-center">
                 <span className="items-center justify-center border rounded-xl p-4 border-[#CEECF0]">
                   <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
@@ -81,7 +83,7 @@ export default function Home() {
             </div>
 
 
-            <button className="bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] text-white text-md font-bold py-5 px-10 rounded-2xl shadow-md hover:opacity-90 transition-opacity duration-300">
+            <button className="bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] text-white text-md font-bold py-5 px-10 rounded-2xl shadow-md hover:opacity-90 transition-opacity duration-300 ">
               <a href="">Позвонить</a>
             </button>
           </nav>
@@ -137,12 +139,12 @@ export default function Home() {
               <svg xmlns="http://www.w3.org/2000/svg" width="67" height="67" viewBox="0 0 67 67" fill="none">
                 <path d="M16.75 50.25L50.25 16.75M50.25 16.75H25.125M50.25 16.75V41.875" stroke="#2F2929" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-              <p className="font-semibold text-md ml-8">Рассчитать стоимость</p>
+              <p className="font-semibold lg:text-lg text-xs lg:ml-8 ml-4 mb-3 lg:mb-0">Рассчитать стоимость</p>
           </div>
         </div>
       </section>
       <section className="py-8 w-full">
-        <div className="max-w-screen-xl mx-auto items-center">
+        <div className="max-w-screen-xl lg:mx-auto px-4 items-center">
             <h1 className="text-4xl font-bold py-4">Персональные проекты под ваш стиль и бюджет</h1>
             <p className="text-xl font-medium">Услуги по проектированию — Продуманный проект — залог идеального ремонта</p>
             <div className="lg:grid lg:grid-cols-3 flex mt-4 gap-4 overflow-x-auto">
@@ -287,7 +289,7 @@ export default function Home() {
             </div>
         </div>
       </section>
-      <section className="max-w-screen-xl mx-auto py-8 ">
+      <section className="max-w-screen-xl lg:mx-auto px-4 py-8 ">
         <div className="lg:flex justify-between items-center">
               <h1 className="lg:text-3xl text-2xl font-bold py-4">Ввести метраж квартиры для расчета стоимости проектирования</h1>
               <div className="flex">
@@ -295,7 +297,7 @@ export default function Home() {
                   <input type="text" placeholder="142" className="py-5 lg:px-10 px-2 rounded-2xl bg-[#F5F5F5] " />
                   <h3 className="text-lg font-semibold ml-2">м2</h3>
                 </div>
-                <div>
+                <div className="">
                   <button className="bg-[#FFCA3B] text-md font-bold py-5 lg:px-10 px-4 rounded-2xl hover:opacity-90 transition-opacity duration-300">
                     <a href="">Рассчитать</a>
                   </button>
@@ -303,7 +305,7 @@ export default function Home() {
               </div>
         </div>
       </section>
-      <section className="max-w-screen-xl mx-auto py-10 ">
+      <section className="max-w-screen-xl lg:mx-auto px-4 sm:px-0 py-10 ">
         <h1 className="text-4xl font-bold py-8">Очная консультация и техпроект</h1>
         <div className="flex overflow-hidden rounded-xl lg:h-[550px] h-[200px]">
           <img 
@@ -326,28 +328,28 @@ export default function Home() {
                   <path d="M9.33334 17.7548L13.6667 22.0708C14.4643 22.8653 15.7579 22.8653 16.5556 22.0708L26.6667 12" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
-              <h3 className="text-lg py-2 mt-2">Дизайнер приезжает на объект</h3>
+              <h3 className="lg:text-lg text-md py-2 mt-2">Дизайнер приезжает на объект</h3>
             </div>
             
             <div className="flex flex-col">
               <div className="relative z-10 bg-[#E8FDFF] text-white rounded-full p-4 w-15 h-15 flex items-center justify-center">
                 <p className="text-[#259FD4] text-lg">2</p>
               </div>
-              <h3 className="text-lg py-2 mt-2">Дизайнер приезжает на объект</h3>
+              <h3 className="lg:text-lg text-md py-2 mt-2">Дизайнер приезжает на объект</h3>
             </div>
             
             <div className="flex flex-col">
               <div className="relative z-10 bg-[#E8FDFF] text-white rounded-full p-4 w-15 h-15 flex items-center justify-center">
                 <p className="text-[#259FD4] text-lg">3</p>
               </div>
-              <h3 className="text-lg py-2 mt-2">Дизайнер приезжает на объект</h3>
+              <h3 className="lg:text-lg text-md py-2 mt-2">Дизайнер приезжает на объект</h3>
             </div>
             
             <div className="flex flex-col">
               <div className="relative z-10 bg-[#E8FDFF] text-white rounded-full p-4 w-15 h-15 flex items-center justify-center">
                 <p className="text-[#259FD4] text-lg">4</p>
               </div>
-              <h3 className="text-lg py-2 mt-2">Дизайнер приезжает на объект</h3>
+              <h3 className="lg:text-lg text-md py-2 mt-2">Дизайнер приезжает на объект</h3>
             </div>
             
             {/* Полоска под кружками */}
@@ -368,7 +370,7 @@ export default function Home() {
         </div>
       </section>
       <section className="bg-[#E8F6EF] w-full ">
-            <div className="mx-auto py-8 max-w-screen-xl">
+            <div className="lg:mx-auto px-4 sm:px-0 py-8 max-w-screen-xl">
               <h1 className="text-4xl font-bold py-4 ">Рассчитаем стоимость онлайн за 5 минут</h1>
                 <div className="bg-[#ffffff] rounded-2xl flex p-6 ">
                   <img src="xyu.png" className="hidden lg:block w-2/5 rounded-2xl" alt="" />
@@ -416,7 +418,7 @@ export default function Home() {
             </div>
       </section>
       <section className="py-8 ">
-        <div className="max-w-screen-xl mx-auto items-center">
+        <div className="max-w-screen-xl lg:mx-auto px-4 sm:px-0 items-center">
             <h1 className="text-4xl font-bold py-4">Какой вид ремонта вас интересует?</h1>
             <div className="lg:grid lg:grid-cols-2 gap-4">
             <div className="border border-[#D0EEDF] rounded-2xl p-4 w-full">
@@ -530,10 +532,10 @@ export default function Home() {
         </div>
       </section>
       <section className="bg-[#E8F6EF] w-full ">
-        <div className="mx-auto py-10 max-w-screen-xl">
+        <div className="lg:mx-auto px-4 sm:px-0 py-10 max-w-screen-xl">
           <div className="lg:flex">
-            <img className="w-[542px] h-[542px] rounded-2xl" src="sometng.jpg" alt="" />
-            <div className="ml-6">
+            <img className="w-[542px] lg:h-[542px] h-86 rounded-2xl" src="sometng.jpg" alt="" />
+            <div className="lg:ml-6">
               <h1 className="text-4xl font-bold">Дополнительные услуги и продукты</h1>
               <p className="text-[#2F2929] text-md py-4">
                 Мы рады предложить вам расширенный спектр дополнительных услуг, которые помогут сделать ваш строительный проект ещё более успешным и комфортным. Наша строительная компания стремится обеспечить максимальное качество и удовлетворение потребностей каждого клиента. 
@@ -567,9 +569,9 @@ export default function Home() {
         </div>
       </section>
       <section className="py-8 ">
-        <div className="max-w-screen-xl mx-auto items-center">
+        <div className="max-w-screen-xl lg:mx-auto px-4 lg:px-0 items-center">
             <h1 className="text-4xl font-bold py-4">Готовые пакеты</h1>
-            <div className="flex grid lg:grid-cols-3 grid-cols-2 gap-5">
+            <div className="flex grid lg:grid-cols-3 grid-cols-1 gap-5">
               <div className="rounded-3xl p-[5px] w-full bg-gradient-to-r from-[#B7E754] to-[#0BCAF0]">
                 <div className="bg-white rounded-2xl p-4 w-full h-full">
                   <h2 className="text-2xl font-bold">Запусти ремонт за 72 часа</h2>
@@ -653,7 +655,7 @@ export default function Home() {
         </div>
       </section>
       <section className="py-8">
-        <div className="max-w-screen-xl mx-auto">
+        <div className="max-w-screen-xl lg:mx-auto px-4 sm:px-0">
           <h1 className="text-4xl font-bold py-4">Действующие акции</h1>
           
           {/* Главное акционное изображение */}
@@ -731,7 +733,7 @@ export default function Home() {
         </div>
       </section>
       <section className="bg-[#E8F6EF] w-full py-8">
-        <div className="max-w-screen-xl mx-auto">
+        <div className="max-w-screen-xl lg:mx-auto px-4 sm:px-0">
           <h1 className="text-4xl font-bold mb-6">Наши работы</h1>
           
           {/* Табы */}
@@ -825,7 +827,7 @@ export default function Home() {
         </div>
       </section>
       <section className="py-8 w-full">
-        <div className="max-w-screen-xl mx-auto items-center ">
+        <div className="max-w-screen-xl lg:mx-auto px-4 sm:px-0 items-center ">
             <h1 className="text-4xl font-bold py-4">Цены ниже, а услуг больше!</h1>
             <div className="lg:flex">
               <div className="flex grid grid-cols-2 gap-5">
@@ -936,9 +938,9 @@ export default function Home() {
       </section>
 
       <section className="py-8">
-        <div className="max-w-screen-xl mx-auto items-center">
+        <div className="max-w-screen-xl lg:mx-auto px-4 sm:px-0 items-center">
             <h1 className="text-4xl font-bold py-4">Этапы работы</h1>
-            <div className="flex grid grid-cols-3 gap-5">
+            <div className="flex grid lg:grid-cols-3 gap-5">
               <div className="rounded-3xl w-full ">
                 <div className="bg-[#E0FAEB] rounded-2xl p-6 w-full">
                   <div className="flex justify-between items-center">
@@ -967,7 +969,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="rounded-3xl w-full invisible">
+              <div className="rounded-3xl w-full invisible lg:block hidden">
                 <div className="bg-[#E0FAEB] rounded-2xl p-6 w-full">
                   <div className="flex justify-between items-center">
                     <h2 className="text-xl font-semibold">Проектирование и планирование</h2>
@@ -981,7 +983,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="rounded-3xl w-full invisible">
+              <div className="rounded-3xl w-full invisible lg:block hidden">
                 <div className="bg-[#E0FAEB] rounded-2xl p-6 w-full">
                   <div className="flex justify-between items-center">
                     <h2 className="text-xl font-semibold">Проектирование и планирование</h2>
@@ -1051,7 +1053,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="rounded-3xl w-full invisible">
+              <div className="rounded-3xl w-full invisible lg:block hidden">
                 <div className="bg-[#E0FAEB] rounded-2xl p-6 w-full">
                   <div className="flex justify-between items-center">
                     <h2 className="text-xl font-semibold">Проектирование и планирование</h2>
@@ -1089,10 +1091,10 @@ export default function Home() {
         </div>
       </section>
       <section className="py-8 bg-[#E8F6EF]">
-        <div className="max-w-screen-xl mx-auto items-center">
+        <div className="max-w-screen-xl lg:mx-auto px-4 lg:px-0 items-center">
             <p className="text-xs text-[#8F8F8F]">Держим качество не первый год</p>
             <h1 className="text-4xl font-bold py-4">За N лет работы мы получили более 800 положительных отзывов</h1>
-            <div className="flex grid lg:grid-cols-3 grid-cols-2 gap-5">
+            <div className="flex grid lg:grid-cols-3 grid-cols-1 gap-5 overflow-x-auto">
               <div className="rounded-3xl w-full ">
                 <div className="bg-white rounded-2xl p-6 w-full ">
                   <div className="flex items-center justify-between">
@@ -1161,7 +1163,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="max-w-screen-xl mx-auto py-10 relative">
+      <section className="max-w-screen-xl lg:mx-auto px-4 lg:px-0 py-10 relative">
         {/* Основной контейнер с обрезкой */}
         <div className="relative bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] w-full h-[700px] rounded-2xl p-14 overflow-hidden">
           <div className="w-2/3">
@@ -1211,11 +1213,11 @@ export default function Home() {
         </div>
       </section>
       <section className="py-8 ">
-        <div className=" items-center">
+        <div className="mx-auto lg:mx-auto px-4 lg:px-0 items-center">
             <h1 className="text-4xl font-bold py-4 max-w-screen-xl mx-auto">Используем оборудование этих марок при проведении вашего ремонта</h1>
             <div className="bg-[#E8F6EF] overflow-hidden">
               <div className="relative py-8 h-[240px]"> {/* Фиксированная высота контейнера */}
-                <div className="absolute flex items-center mt-8 top-0 left-0 grid grid-cols-8 gap-4 w-[200%] animate-scroll-horizontal">
+                <div className="absolute flex items-center mt-8 top-0 left-0 grid lg:grid-cols-8 grid-cols-4 gap-4 w-[200%] animate-scroll-horizontal">
                   {/* Первый набор блоков */}
                   {[...Array(8)].map((_, i) => (
                     <div key={`first-${i}`} className="bg-white flex-col flex py-12 items-center rounded-lg">
@@ -1250,13 +1252,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-gray-200  ">
+      <section className="bg-gray-200  mx-auto">
         <div className="flex items-center max-w-screen-xl mx-auto py-2 justify-center text-2xl h-[500px]">
             Здесь типо карта должна быть, нужен апи ключ
         </div>
       </section>
-      <footer className=" max-w-screen-xl mx-auto py-2">
-          <nav className="flex items-center justify-between">
+      <footer className=" max-w-screen-xl mx-auto lg:mx-auto px-4 lg:px-0  py-2">
+          <nav className="lg:flex items-center justify-between">
             <div className="">
               <Image 
                   src="/logo.png" 
@@ -1266,13 +1268,13 @@ export default function Home() {
               />
               <p className="text-sm w-48 mt-4">Ремонт квартир под ключ с гарантией</p>
             </div>
-            <div>
+            <div className="mr-2">
               <p><a href="">Услуги</a></p>
               <p><a href="">Калькулятор</a></p>
               <p><a href="">Наши работы</a></p>
               <p><a href="">Отзывы</a></p>
             </div>
-            <div>
+            <div className="mr-2">
               <p><a href="">Email:</a></p>
               <p><a href="">Калькулятор</a></p>
               <p><a href="">Address:</a></p>
