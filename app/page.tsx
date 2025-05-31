@@ -536,7 +536,7 @@ export default function Home() {
           <div className="lg:flex">
             <img className="w-[542px] lg:h-[542px] h-86 rounded-2xl" src="sometng.jpg" alt="" />
             <div className="lg:ml-6">
-              <h1 className="text-4xl font-bold">Дополнительные услуги и продукты</h1>
+              <h1 className="text-4xl font-bold lg:mt-0 mt-4">Дополнительные услуги и продукты</h1>
               <p className="text-[#2F2929] text-md py-4">
                 Мы рады предложить вам расширенный спектр дополнительных услуг, которые помогут сделать ваш строительный проект ещё более успешным и комфортным. Наша строительная компания стремится обеспечить максимальное качество и удовлетворение потребностей каждого клиента. 
               </p>
@@ -668,14 +668,14 @@ export default function Home() {
               quality={100}
               priority
             />
-            <div className="absolute inset-0 bg-black bg-opacity-30 flex flex-col justify-center items-start p-8">
-              <h2 className="text-3xl font-bold text-white mb-2">Специальное предложение</h2>
-              <p className="text-xl text-white mb-4">Скидка 20% на все виды ремонта до конца месяца</p>
+            <div className="absolute inset-0 bg-black bg-opacity-30 flex flex-col justify-center items-start p-8 lg:py-0 py-4">
+              <h2 className="lg:text-3xl text-2xl font-bold text-white mb-2">Специальное предложение</h2>
+              <p className="lg:text-xl text-md text-white mb-4">Скидка 20% на все виды ремонта до конца месяца</p>
               <div className="flex">
-                <button className="text-lg font-semibold text-black mr-2 py-3 px-6 rounded-xl bg-white hover:bg-gray-100 transition">
+                <button className="lg:text-lg text-xs font-semibold text-black mr-2 py-3 lg:px-6 px-4 rounded-xl bg-white hover:bg-gray-100 transition">
                   -10%
                 </button>
-                <button className="text-lg font-medium text-white py-3 px-6 rounded-xl bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] hover:opacity-90 transition">
+                <button className="lg:text-lg text-xs font-medium text-white py-3 lg:px-6 px-4 rounded-xl bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] hover:opacity-90 transition">
                   Получить скидку
                 </button>
               </div>
@@ -694,13 +694,13 @@ export default function Home() {
                 quality={100}
               />
               <div className="absolute inset-0 bg-black bg-opacity-30 flex flex-col justify-center items-start p-6">
-                <h2 className="text-2xl font-bold text-white mb-2">Молодым семьям</h2>
+                <h2 className="lg:text-2xl text-xl font-bold text-white mb-2">Молодым семьям</h2>
                 <p className="text-white mb-4">Рассрочка 0% на 12 месяцев</p>
                 <div className="flex">
-                  <button className="text-lg font-semibold text-black mr-2 py-3 px-6 rounded-xl bg-white hover:bg-gray-100 transition">
+                  <button className="lg:text-lg text-xs font-semibold text-black mr-2 py-3 lg:px-6 px-4 rounded-xl bg-white hover:bg-gray-100 transition">
                     -10%
                   </button>
-                  <button className="text-lg font-medium text-white py-3 px-6 rounded-xl bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] hover:opacity-90 transition">
+                  <button className="lg:text-lg text-xs font-medium text-white py-3 lg:px-6 px-4 rounded-xl bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] hover:opacity-90 transition">
                     Получить скидку
                   </button>
                 </div>
@@ -720,10 +720,10 @@ export default function Home() {
                 <h2 className="text-2xl font-bold text-white mb-2">Пенсионерам</h2>
                 <p className="text-white mb-4">Специальные скидки до 30%</p>
                 <div className="flex">
-                  <button className="text-lg font-semibold text-black mr-2 py-3 px-6 rounded-xl bg-white hover:bg-gray-100 transition">
+                  <button className="lg:text-lg text-xs font-semibold text-black mr-2 py-3 lg:px-6 px-4 rounded-xl bg-white hover:bg-gray-100 transition">
                     -10%
                   </button>
-                  <button className="text-lg font-medium text-white py-3 px-6 rounded-xl bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] hover:opacity-90 transition">
+                  <button className="lg:text-lg text-xs font-medium text-white py-3 lg:px-6 px-4 rounded-xl bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] hover:opacity-90 transition">
                     Получить скидку
                   </button>
                 </div>
@@ -761,54 +761,54 @@ export default function Home() {
           <div className="bg-white rounded-2xl shadow-md p-5 mt-2 flex">
             <div className="flex flex-col w-full">
               <div className="flex flex-col w-full">
-                <div className="flex w-2/3">
+                <div className="flex lg:w-2/3">
                   <div>
                     <div className="flex gap-2 flex-col items-center justify-start">
-                      <div className="w-24 h-24">
+                      <div className="lg:w-24 w-20 lg:h-24 h-20">
                         <Image 
                           width={100}
                           height={100}
                           src={"/ourw.jpg"}
                           alt={"qwerty"}
-                          className="object-cover w-24 h-24 rounded-2xl"
+                          className="object-cover lg:w-24 lg:h-24 w-20 h-20 rounded-2xl"
                         />
                       </div>
-                      <div className="w-24 h-24">
+                      <div className="lg:w-24 w-20 lg:h-24 h-20">
                         <Image 
                           width={100}
                           height={100}
                           src={"/ourw.jpg"}
                           alt={"qwerty"}
-                          className="object-cover w-24 h-24 rounded-2xl"
+                          className="object-cover lg:w-24 lg:h-24 w-20 h-20 rounded-2xl"
                         />
                       </div>
-                      <div className="w-24 h-24">
+                      <div className="lg:w-24 w-20 lg:h-24 h-20">
                         <Image 
                           width={100}
                           height={100}
                           src={"/ourw.jpg"}
                           alt={"qwerty"}
-                          className="object-cover w-24 h-24 rounded-2xl"
+                          className="object-cover lg:w-24 lg:h-24 w-20 h-20 rounded-2xl"
                         />
                       </div>
-                      <div className="w-24 h-24">
+                      <div className="lg:w-24 w-20 lg:h-24 h-20">
                         <Image 
                           width={100}
                           height={100}
                           src={"/ourw.jpg"}
                           alt={"qwerty"}
-                          className="object-cover w-24 h-24 rounded-2xl"
+                          className="object-cover lg:w-24 lg:h-24 w-20 h-20 rounded-2xl"
                         />
                       </div>
                     </div>
                   </div>
-                  <div className="w-full h-full lg:ml-2">
+                  <div className="w-full h-full ml-2">
                     <img
-                        className="object-cover h-96 rounded-2xl" 
+                        className="object-cover h-full rounded-2xl" 
                         src={"/ourw.jpg"}
                       />
                   </div>
-                  <div className="w-1/3">
+                  <div className="lg:w-1/3">
 
                   </div>
                 </div>
@@ -1075,14 +1075,14 @@ export default function Home() {
               alt="Главная акция"
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-black bg-opacity-30 flex flex-col justify-center items-start p-8">
-              <h2 className="text-3xl font-bold text-white mb-2">Специальное предложение</h2>
-              <p className="text-xl text-white mb-4">Скидка 20% на все виды ремонта до конца месяца</p>
+            <div className="absolute inset-0 bg-black bg-opacity-30 flex flex-col justify-center items-start p-8 lg:py-0 py-4">
+              <h2 className="lg:text-3xl text-2xl font-bold text-white mb-2">Специальное предложение</h2>
+              <p className="lg:text-xl text-md text-white mb-4">Скидка 20% на все виды ремонта до конца месяца</p>
               <div className="flex">
-                <button className="text-lg font-semibold text-black mr-2 py-3 px-6 rounded-xl bg-white hover:bg-gray-100 transition">
+                <button className="lg:text-lg text-xs font-semibold text-black mr-2 lg:py-3 py-2 lg:px-6 px-2 rounded-xl bg-white hover:bg-gray-100 transition">
                   -10%
                 </button>
-                <button className="text-lg font-medium text-white py-3 px-6 rounded-xl bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] hover:opacity-90 transition">
+                <button className="lg:text-lg text-xs font-medium text-white lg:py-3 py-2 lg:px-6 px-2 rounded-xl bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] hover:opacity-90 transition">
                   Получить скидку
                 </button>
               </div>
@@ -1165,8 +1165,8 @@ export default function Home() {
 
       <section className="max-w-screen-xl lg:mx-auto px-4 lg:px-0 py-10 relative">
         {/* Основной контейнер с обрезкой */}
-        <div className="relative bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] w-full h-[700px] rounded-2xl p-14 overflow-hidden">
-          <div className="w-2/3">
+        <div className="relative bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] w-full lg:h-[700px] h-full rounded-2xl p-14 overflow-hidden">
+          <div className="lg:w-2/3 w-full">
             <h1 className="text-white text-3xl font-bold">Дизайнерский проект в подарок!</h1>
             <p className="text-white text-lg mt-2">При заключении договора на ремонтно-отделочные работы от 750 000 ₪ вы получаете профессиональный дизайн-проект в подарок.</p>
             <p className="text-white text-lg font-medium mt-4">В состав подарочного дизайн-проекта входят:</p>
@@ -1192,7 +1192,7 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="w-2/3 mt-10">
+            <div className="lg:w-2/3 lg:mt-10 mt-2">
               <input placeholder="Ваше имя" className="w-full mt-3 bg-[#FFFFFF] text-md py-5 px-8 rounded-2xl hover:opacity-90 transition-opacity duration-300" type="text" />
               <input placeholder="Номер телефона" className="w-full mt-3 bg-[#FFFFFF] text-md py-5 px-8 rounded-2xl hover:opacity-90 transition-opacity duration-300" type="text" />
               <button className="w-full mt-3 bg-[#FFCA3B] text-md font-bold py-5 px-10 rounded-2xl hover:opacity-90 transition-opacity duration-300">
@@ -1203,7 +1203,7 @@ export default function Home() {
           </div>
           
           {/* Обертка для изображения с обрезкой */}
-          <div className="w-full absolute right-0 bottom-0 w-[100%] h-[100%] overflow-hidden">
+          <div className="w-full hidden lg:block absolute right-0 bottom-0 w-[100%] h-[100%] overflow-hidden">
             <img 
               className="absolute right-[-40%] bottom-[-40%] h-[1000px] w-auto max-w-none object-contain object-left-bottom" 
               src="book.png" 
@@ -1253,13 +1253,13 @@ export default function Home() {
       </section>
 
       <section className="bg-gray-200  mx-auto">
-        <div className="flex items-center max-w-screen-xl mx-auto py-2 justify-center text-2xl h-[500px]">
+        <div className="flex w-1/2 items-center max-w-screen-xl mx-auto py-2 justify-center text-2xl h-[500px]">
             Здесь типо карта должна быть, нужен апи ключ
         </div>
       </section>
       <footer className=" max-w-screen-xl mx-auto lg:mx-auto px-4 lg:px-0  py-2">
-          <nav className="lg:flex items-center justify-between">
-            <div className="">
+          <nav className="flex items-center justify-between">
+            <div className="mr-2">
               <Image 
                   src="/logo.png" 
                   width={100} 
@@ -1268,22 +1268,25 @@ export default function Home() {
               />
               <p className="text-sm w-48 mt-4">Ремонт квартир под ключ с гарантией</p>
             </div>
-            <div className="mr-2">
-              <p><a href="">Услуги</a></p>
-              <p><a href="">Калькулятор</a></p>
-              <p><a href="">Наши работы</a></p>
-              <p><a href="">Отзывы</a></p>
-            </div>
-            <div className="mr-2">
-              <p><a href="">Email:</a></p>
-              <p><a href="">Калькулятор</a></p>
-              <p><a href="">Address:</a></p>
-              <p><a href="">Отзывы</a></p>
+            <div className="lg:flex">
+              <div className="mr-2">
+                <p><a href="">Услуги</a></p>
+                <p><a href="">Калькулятор</a></p>
+                <p><a href="">Наши работы</a></p>
+                <p><a href="">Отзывы</a></p>
+              </div>
+              <div className="mr-2 lg:mt-0 mt-3">
+                <p><a href="">Email:</a></p>
+                <p><a href="">Калькулятор</a></p>
+                <p><a href="">Address:</a></p>
+                <p><a href="">Отзывы</a></p>
+              </div>
+              <button className="lg:mt-0 mt-3 bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] text-white text-md font-bold py-5 px-10 rounded-2xl shadow-md hover:opacity-90 transition-opacity duration-300">
+                <a href="">Позвонить</a>
+              </button>
+
             </div>
 
-            <button className="bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] text-white text-md font-bold py-5 px-10 rounded-2xl shadow-md hover:opacity-90 transition-opacity duration-300">
-              <a href="">Позвонить</a>
-            </button>
           </nav>
         </footer>
     </div>
