@@ -144,10 +144,10 @@ export default function Home() {
         </div>
       </section>
       <section className="py-8 w-full">
-        <div className="max-w-screen-xl lg:mx-auto px-4 items-center">
+        <div className="relative max-w-screen-xl lg:mx-auto px-4  items-center">
             <h1 className="text-4xl font-bold py-4">Персональные проекты под ваш стиль и бюджет</h1>
             <p className="text-xl font-medium">Услуги по проектированию — Продуманный проект — залог идеального ремонта</p>
-            <div className="lg:grid lg:grid-cols-3 flex mt-4 gap-4 overflow-x-auto">
+            <div className="lg:grid lg:grid-cols-3 flex mt-5 pt-8 gap-4 overflow-x-auto ">
               <div className="  min-w-96 w-full border border-[#D0EEDF] p-6 rounded-xl">
                 <h2 className="font-semibold text-lg">Покраска квартиры</h2>
                 <h2 className="font-bold text-3xl mt-2">Бесплатно</h2>
@@ -161,7 +161,7 @@ export default function Home() {
                   </button>
                 </div>
 
-                <div>
+                <div className="">
                   <div className="flex items-center py-4">
                     <span className="text-white font-bold text-xs bg-[#3CB473] py-1.5 px-2.5 rounded-lg">
                       ✓	
@@ -194,7 +194,11 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="bg-[#D0EEDF]  min-w-96  w-full border border-[#D0EEDF] p-6 rounded-xl">
+
+            <div className="relative bg-[#D0EEDF] z-50 min-w-96 w-full border border-[#D0EEDF] p-6 rounded-xl overflow-visible">
+                <div className="absolute top-[-30px] mb-4 z-50 right-6 bg-[#FFCA3B] rounded-2xl p-3">
+                    <h3 className="text-black font-semibold">Выбирают 86% клиентов</h3>
+                </div>  
                 <h2 className="font-semibold text-lg">Покраска квартиры</h2>
                 <h2 className="font-bold text-3xl mt-2">Бесплатно</h2>
                 <p className=" text-lg text-gray-500 mt-4">
@@ -240,6 +244,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+
               <div className=" min-w-96 w-full border border-[#D0EEDF] p-6 rounded-xl">
 
                 <h2 className="font-semibold text-lg">Покраска квартиры</h2>
@@ -308,16 +313,26 @@ export default function Home() {
       <section className="max-w-screen-xl lg:mx-auto px-4 sm:px-0 py-10 ">
         <h1 className="text-4xl font-bold py-8">Очная консультация и техпроект</h1>
         <div className="flex overflow-hidden rounded-xl lg:h-[550px] h-[200px]">
-          <img 
-            src="first1.png" 
-            alt="Консультация" 
-            className="w-1/2 object-cover rounded-l-xl"
-          />
-          <img 
-            src="first2.png" 
-            alt="Техпроект" 
-            className="w-1/2 object-cover rounded-r-xl"
-          />
+          <div className="relative w-1/2">
+            <img 
+              src="first1.png" 
+              alt="Консультация" 
+              className=" object-cover rounded-l-xl"
+            />
+            <div className="absolute top-4 left-6">
+              <p className="text-white">До</p>
+            </div>
+          </div>
+          <div className="relative w-1/2">
+            <img 
+              src="first2.png" 
+              alt="Техпроект" 
+              className=" object-cover rounded-r-xl"
+            />
+            <div className="absolute top-4 left-6">
+              <p className="text-white">После</p>
+            </div>
+          </div>
         </div>
         <h1 className="text-2xl font-bold py-4">День встречи</h1>
         <div className="relative">
@@ -373,7 +388,16 @@ export default function Home() {
             <div className="lg:mx-auto px-4 sm:px-0 py-8 max-w-screen-xl">
               <h1 className="text-4xl font-bold py-4 ">Рассчитаем стоимость онлайн за 5 минут</h1>
                 <div className="bg-[#ffffff] rounded-2xl flex p-6 ">
-                  <img src="xyu.png" className="hidden lg:block w-2/5 rounded-2xl" alt="" />
+                  <div className="relative hidden lg:block w-2/5">
+                    <img src="xyu.png" className=" rounded-2xl" alt="" />
+                    <div className="absolute bottom-5 right-6 flex flex-col text-white">
+                      <div className="flex items-center">
+                        <div className="bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] h-4 w-4 rounded-full mr-2"></div>
+                        <h2 className="text-xl font-medium right-8">Виталий</h2>
+                      </div>
+                      <p className="text-xs mt-1">Операционный менеджер</p>
+                    </div>
+                  </div>
                   
 
                   <div className="lg:w-3/5 lg:ml-4">
@@ -385,10 +409,13 @@ export default function Home() {
                     </div>
 
                     <div className="mt-4">
-                      <input type="text" placeholder="Имя" className="w-full py-5 px-5 rounded-2xl border-1 border-[#D3D3D3]" />
                       <div className="flex mt-4">
-                        <input type="text" placeholder="Номер телефона" className="w-1/2 py-5 px-5 rounded-2xl border-1 border-[#D3D3D3]" />
-                        <input type="text" placeholder="Адрес" className="w-1/2 ml-4 py-5 px-5 rounded-2xl border-1 border-[#D3D3D3]" />
+                        <input type="text" placeholder="Имя" className="w-1/2 py-5 px-5 rounded-2xl border-1 border-[#D3D3D3]" />
+                        <input type="phone" placeholder="Номер телефона" className="w-1/2 ml-4 py-5 px-5 rounded-2xl border-1 border-[#D3D3D3]" />
+                      </div>
+                      <div className="flex mt-4">
+                        <input type="text" placeholder="Адрес" className="w-1/2 py-5 px-5 rounded-2xl border-1 border-[#D3D3D3]" />
+                        <input type="text" placeholder="Город" className="w-1/2 ml-4 py-5 px-5 rounded-2xl border-1 border-[#D3D3D3]" />
                       </div>
                     </div>
                     <div className="flex mt-4 w-full">
@@ -420,7 +447,7 @@ export default function Home() {
       <section className="py-8 ">
         <div className="max-w-screen-xl lg:mx-auto px-4 sm:px-0 items-center">
             <h1 className="text-4xl font-bold py-4">Какой вид ремонта вас интересует?</h1>
-            <div className="lg:grid lg:grid-cols-2 gap-4">
+            <div className="lg:grid lg:grid-cols-2 gap-4 mt-3">
             <div className="border border-[#D0EEDF] rounded-2xl p-4 w-full">
                   <h2 className="text-2xl font-bold">Покраска квартиры</h2>
                   <p className="text-[#909090] text-md ">Обновим интерьер вашей квартиры быстро и аккуратно</p>
@@ -664,18 +691,18 @@ export default function Home() {
               src="/fornow.png"
               alt="Главная акция"
               fill
-              className="object-cover"
+              className="object-cover z-30"
               quality={100}
               priority
             />
-            <div className="absolute inset-0 bg-black bg-opacity-30 flex flex-col justify-center items-start p-8 lg:py-0 py-4">
-              <h2 className="lg:text-3xl text-2xl font-bold text-white mb-2">Специальное предложение</h2>
-              <p className="lg:text-xl text-md text-white mb-4">Скидка 20% на все виды ремонта до конца месяца</p>
-              <div className="flex">
-                <button className="lg:text-lg text-xs font-semibold text-black mr-2 py-3 lg:px-6 px-4 rounded-xl bg-white hover:bg-gray-100 transition">
+            <div className=" absolute inset-0 bg-black bg-opacity-30 flex flex-col justify-center items-start p-8 lg:py-0 py-4">
+              <h2 className="lg:text-3xl text-2xl font-bold text-white mb-2 z-40">Специальное предложение</h2>
+              <p className="lg:text-xl text-md text-white mb-4 z-40">Скидка 20% на все виды ремонта до конца месяца</p>
+              <div className="flex z-40">
+                <button className="lg:text-lg text-xs font-semibold text-black mr-2 lg:py-4 py-3 lg:px-6 px-4 rounded-2xl bg-[#E0FAEB] hover:bg-gray-100 transition">
                   -10%
                 </button>
-                <button className="lg:text-lg text-xs font-medium text-white py-3 lg:px-6 px-4 rounded-xl bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] hover:opacity-90 transition">
+                <button className="lg:text-lg text-xs font-medium text-white lg:py-4 py-3 lg:px-6 px-4 rounded-2xl bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] hover:opacity-90 transition">
                   Получить скидку
                 </button>
               </div>
@@ -690,17 +717,17 @@ export default function Home() {
                 src="/molod.jpg"
                 alt="Акция для молодых семей"
                 fill
-                className="object-cover"
+                className="object-cover z-10"
                 quality={100}
               />
               <div className="absolute inset-0 bg-black bg-opacity-30 flex flex-col justify-center items-start p-6">
-                <h2 className="lg:text-2xl text-xl font-bold text-white mb-2">Молодым семьям</h2>
-                <p className="text-white mb-4">Рассрочка 0% на 12 месяцев</p>
+                <h2 className="lg:text-2xl text-xl font-bold text-white mb-2 z-20">Молодым семьям</h2>
+                <p className="text-white mb-4 z-20">Рассрочка 0% на 12 месяцев</p>
                 <div className="flex">
-                  <button className="lg:text-lg text-xs font-semibold text-black mr-2 py-3 lg:px-6 px-4 rounded-xl bg-white hover:bg-gray-100 transition">
+                  <button className="z-20 lg:text-lg text-xs font-semibold text-black mr-2 lg:py-4 py-3 lg:px-6 px-4 rounded-2xl bg-[#E0FAEB] hover:bg-gray-100 transition">
                     -10%
                   </button>
-                  <button className="lg:text-lg text-xs font-medium text-white py-3 lg:px-6 px-4 rounded-xl bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] hover:opacity-90 transition">
+                  <button className="z-20 lg:text-lg text-xs font-medium text-white lg:py-4 py-3 lg:px-6 px-4 rounded-2xl bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] hover:opacity-90 transition">
                     Получить скидку
                   </button>
                 </div>
@@ -713,17 +740,17 @@ export default function Home() {
                 src="/pension.png"
                 alt="Акция для пенсионеров"
                 fill
-                className="object-cover"
+                className="object-cover z-10"
                 quality={100}
               />
               <div className="absolute inset-0 bg-black bg-opacity-30 flex flex-col justify-center items-start p-6">
-                <h2 className="text-2xl font-bold text-white mb-2">Пенсионерам</h2>
-                <p className="text-white mb-4">Специальные скидки до 30%</p>
-                <div className="flex">
-                  <button className="lg:text-lg text-xs font-semibold text-black mr-2 py-3 lg:px-6 px-4 rounded-xl bg-white hover:bg-gray-100 transition">
+                <h2 className="text-2xl font-bold text-white mb-2 z-20">Пенсионерам</h2>
+                <p className="text-white mb-4 z-20">Специальные скидки до 30%</p>
+                <div className="flex z-20">
+                  <button className="z-20 lg:text-lg text-xs font-semibold text-black mr-2 lg:py-4 py-3 lg:px-6 px-4 rounded-2xl bg-[#E0FAEB] hover:bg-gray-100 transition">
                     -10%
                   </button>
-                  <button className="lg:text-lg text-xs font-medium text-white py-3 lg:px-6 px-4 rounded-xl bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] hover:opacity-90 transition">
+                  <button className="z-20 lg:text-lg text-xs font-medium text-white lg:py-4 py-3 lg:px-6 px-4 rounded-2xl bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] hover:opacity-90 transition">
                     Получить скидку
                   </button>
                 </div>
@@ -739,22 +766,22 @@ export default function Home() {
           {/* Табы */}
           <div className="flex space-x-4 overflow-x-auto pb-4">
             <button className="flex-shrink-0 px-6 py-3 bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] text-white font-bold rounded-2xl shadow-md">
-              Капитальный (15)
+              Капитальный <span className="p-2 py-1 m-1 bg-white rounded-full text-black text-md">15</span>
             </button>
             <button className="flex-shrink-0 px-6 py-3 bg-white border border-gray-200 text-gray-700 font-bold rounded-2xl">
-              Косметический (15)
+              Косметический <span className="p-2 py-1 m-1  rounded-full  bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] text-white text-md">15</span>
             </button>
             <button className="flex-shrink-0 px-6 py-3 bg-white border border-gray-200 text-gray-700 font-bold rounded-2xl">
-              Дизайнерский (15)
+              Дизайнерский <span className="p-2 py-1 m-1  rounded-full  bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] text-white text-md">15</span>
             </button>
             <button className="flex-shrink-0 px-6 py-3 bg-white border border-gray-200 text-gray-700 font-bold rounded-2xl">
-              Под ключ (1)
+              Под ключ <span className="p-2 py-1 m-1  rounded-full  bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] text-white text-md">15</span>
             </button>
             <button className="flex-shrink-0 px-6 py-3 bg-white border border-gray-200 text-gray-700 font-bold rounded-2xl">
-              Студии (1)
+              Студии <span className="p-2 py-1 m-1  rounded-full  bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] text-white text-md">15</span>
             </button>
             <button className="flex-shrink-0 px-6 py-3 bg-white border border-gray-200 text-gray-700 font-bold rounded-2xl">
-              Черновой (10)
+              Черновой <span className="p-2 py-1 m-1  rounded-full  bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] text-white text-md">15</span>
             </button>
           </div>
 
@@ -1069,20 +1096,23 @@ export default function Home() {
               </div>
 
             </div>
-          <div className="relative rounded-3xl overflow-hidden mb-4 h-56 w-full bg-gray-100 mt-20">
-            <img
+          <div className="relative rounded-3xl overflow-hidden mb-4 h-56 w-full bg-gray-100 mt-15">
+            <Image
               src="/works.png"
               alt="Главная акция"
-              className="object-cover"
+              fill
+              className="object-cover z-30"
+              quality={100}
+              priority
             />
-            <div className="absolute inset-0 bg-black bg-opacity-30 flex flex-col justify-center items-start p-8 lg:py-0 py-4">
-              <h2 className="lg:text-3xl text-2xl font-bold text-white mb-2">Специальное предложение</h2>
-              <p className="lg:text-xl text-md text-white mb-4">Скидка 20% на все виды ремонта до конца месяца</p>
-              <div className="flex">
-                <button className="lg:text-lg text-xs font-semibold text-black mr-2 lg:py-3 py-2 lg:px-6 px-2 rounded-xl bg-white hover:bg-gray-100 transition">
+            <div className=" absolute inset-0 bg-black bg-opacity-30 flex flex-col justify-center items-start p-8 lg:py-0 py-4">
+              <h2 className="lg:text-3xl text-2xl font-bold text-white mb-2 z-40">Специальное предложение</h2>
+              <p className="lg:text-xl text-md text-white mb-4 z-40">Скидка 20% на все виды ремонта до конца месяца</p>
+              <div className="flex z-40">
+                <button className="lg:text-lg text-xs font-semibold text-black mr-2 lg:py-4 py-3 lg:px-6 px-4 rounded-2xl bg-[#E0FAEB] hover:bg-gray-100 transition">
                   -10%
                 </button>
-                <button className="lg:text-lg text-xs font-medium text-white lg:py-3 py-2 lg:px-6 px-2 rounded-xl bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] hover:opacity-90 transition">
+                <button className="lg:text-lg text-xs font-medium text-white lg:py-4 py-3 lg:px-6 px-4 rounded-2xl bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] hover:opacity-90 transition">
                   Получить скидку
                 </button>
               </div>
@@ -1165,7 +1195,7 @@ export default function Home() {
 
       <section className="max-w-screen-xl lg:mx-auto px-4 lg:px-0 py-10 relative">
         {/* Основной контейнер с обрезкой */}
-        <div className="relative bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] w-full lg:h-[700px] h-full rounded-2xl p-14 overflow-hidden">
+        <div className="relative bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] w-full lg:h-[700px] h-full rounded-2xl lg:p-14 p-8 overflow-hidden">
           <div className="lg:w-2/3 w-full">
             <h1 className="text-white text-3xl font-bold">Дизайнерский проект в подарок!</h1>
             <p className="text-white text-lg mt-2">При заключении договора на ремонтно-отделочные работы от 750 000 ₪ вы получаете профессиональный дизайн-проект в подарок.</p>
@@ -1251,7 +1281,24 @@ export default function Home() {
 `}</style>
         </div>
       </section>
-
+      <section className="py-8 ">
+        <div className="mx-auto lg:mx-auto px-4 lg:px-0 items-center">
+            <h1 className="text-4xl font-bold py-4 max-w-screen-xl mx-auto">Популярный керамогранит 2025</h1>
+            <div className="bg-[#E8F6EF] overflow-hidden">
+              <div className="relative py-8 h-[260px]"> {/* Фиксированная высота контейнера */}
+                <div className="absolute flex items-center mb-20 mt-8 top-0 left-0 grid lg:grid-cols-10 grid-cols-4 gap-4 w-[200%] animate-scroll-horizontal">
+                  {/* Первый набор блоков */}
+                  {[...Array(8)].map((_, i) => (
+                    <div key={`secong-${i}`} className="bg-white flex-col flex py-4 px-12 items-center rounded-lg">
+                      <p className="text-black text-xl py-2">5 единиц в наличии</p>
+                      <img className="" src={"/molod.jpg"} alt={""} />
+                    </div>
+                  ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <section className="bg-gray-200  mx-auto">
         <div className="flex w-1/2 items-center max-w-screen-xl mx-auto py-2 justify-center text-2xl h-[500px]">
             Здесь типо карта должна быть, нужен апи ключ
