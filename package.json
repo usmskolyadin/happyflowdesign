@@ -15,9 +15,14 @@
     "next-auth": "^4.24.11",
     "nodemailer": "^6.10.1",
     "pg": "^8.16.0",
+    "ra-data-json-server": "^5.8.3",
+    "ra-data-simple-rest": "^5.8.3",
     "react": "^19.0.0",
+    "react-admin": "^5.8.3",
     "react-dom": "^19.0.0",
-    "sequelize": "^6.37.7"
+    "sequelize": "^6.37.7",
+    "swr": "^2.3.3",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

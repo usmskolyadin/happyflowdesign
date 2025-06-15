@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE "ProjectCard" ALTER COLUMN "price" DROP NOT NULL,
+ALTER COLUMN "description" DROP NOT NULL,
+ALTER COLUMN "order" DROP DEFAULT;

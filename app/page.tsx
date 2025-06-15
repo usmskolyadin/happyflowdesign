@@ -3,6 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Stars } from "./components/Stars";
+import HeroSection from "./components/HeroSection";
+import ProjectCards from "./components/ProjectCardsSection";
+import CalculatorSection from "./components/CalculatorSection";
+import PricingBlock from "./components/PricingSection";
 
 export default function Home() {
   const services = [
@@ -34,30 +38,24 @@ export default function Home() {
             </div>
             <div className="flex items-center hidden lg:flex">
               <span className="items-center justify-center border rounded-xl p-4 border-[#CEECF0]">
-
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
                   <path d="M15.75 7.5C15.75 12.75 9 17.25 9 17.25C9 17.25 2.25 12.75 2.25 7.5C2.25 5.70979 2.96116 3.9929 4.22703 2.72703C5.4929 1.46116 7.20979 0.75 9 0.75C10.7902 0.75 12.5071 1.46116 13.773 2.72703C15.0388 3.9929 15.75 5.70979 15.75 7.5Z" fill="#A3CEE1"/>
                   <path d="M9 9.75C10.2426 9.75 11.25 8.74264 11.25 7.5C11.25 6.25736 10.2426 5.25 9 5.25C7.75736 5.25 6.75 6.25736 6.75 7.5C6.75 8.74264 7.75736 9.75 9 9.75Z" fill="white"/>
                 </svg>
-
               </span>
               <p className="lg:block hidden text-sm ml-4 w-24">Israel, Netanya central district</p>
             </div>
-            
             <div className="flex items-center hidden lg:flex">
               <span className="items-center justify-center border rounded-xl p-4 border-[#CEECF0]">
-
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
                   <path d="M16.5001 12.69V14.94C16.5009 15.1489 16.4581 15.3556 16.3745 15.547C16.2908 15.7384 16.168 15.9102 16.0141 16.0514C15.8602 16.1926 15.6785 16.3001 15.4806 16.367C15.2828 16.434 15.0731 16.4588 14.8651 16.44C12.5572 16.1892 10.3403 15.4006 8.39257 14.1375C6.58044 12.986 5.04407 11.4496 3.89257 9.63751C2.62506 7.68091 1.83625 5.45326 1.59007 3.13501C1.57133 2.92761 1.59598 2.71858 1.66245 2.52123C1.72892 2.32388 1.83575 2.14253 1.97615 1.98873C2.11654 1.83493 2.28743 1.71204 2.47792 1.6279C2.6684 1.54376 2.87433 1.50021 3.08257 1.50001H5.33257C5.69655 1.49643 6.04942 1.62532 6.32539 1.86266C6.60137 2.1 6.78163 2.4296 6.83257 2.79001C6.92754 3.51006 7.10366 4.21706 7.35757 4.89751C7.45848 5.16595 7.48032 5.4577 7.4205 5.73817C7.36069 6.01865 7.22172 6.27609 7.02007 6.48001L6.06757 7.43251C7.13524 9.31017 8.68991 10.8648 10.5676 11.9325L11.5201 10.98C11.724 10.7784 11.9814 10.6394 12.2619 10.5796C12.5424 10.5198 12.8341 10.5416 13.1026 10.6425C13.783 10.8964 14.49 11.0725 15.2101 11.1675C15.5744 11.2189 15.9071 11.4024 16.145 11.6831C16.3828 11.9638 16.5092 12.3222 16.5001 12.69Z" fill="#A3CEE1"/>
                 </svg>
-
               </span>
               <div className="lg:block hidden ">
                 <p className="text-sm ml-4 text-[#8FB0C7] font-semibold">Ежедневно, с 9.00-21.00</p>
                 <p className="text-lg ml-4">+ 972 (055) 296-85-22t</p>
               </div>
             </div>
-
             <div className="flex gap-4 hidden lg:flex">
               <div className="flex items-center">
                 <span className="items-center justify-center border rounded-xl p-4 border-[#CEECF0]">
@@ -81,8 +79,6 @@ export default function Home() {
                 </span>
               </div>
             </div>
-
-
             <button className="bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] text-white text-md font-bold py-5 px-10 rounded-2xl shadow-md hover:opacity-90 transition-opacity duration-300 ">
               <a href="">Позвонить</a>
             </button>
@@ -92,224 +88,21 @@ export default function Home() {
           <div className="flex justify-between max-w-screen-xl mx-auto">
             {
               services.map((item) => (
-                <a key={item} className="font-medium hover:text-blue-500">
-                  <Link href={`${item}`} >
+                  <Link key={item} className="font-medium hover:text-blue-500" href={`${item}`} >
                       {item}
                   </Link>
-                </a>
               ))
             }
           </div>
         </nav>
       </div>
-      <section className="relative"> {/* Добавляем relative для позиционирования */}
-        <div className="relative h-[700px]"> {/* Контейнер для всего контента */}
-          {/* Фоновое изображение */}
-          <Image 
-            src="/image.png" 
-            fill // Заполняет родительский контейнер
-            className="object-cover z-0" // z-0 помещает изображение под контент
-            alt="Фоновое изображение"
-          />
-          
-          {/* Текст и кнопки */}
-          <div className="lg:ml-0 ml-4 absolute inset-0 z-10 flex items-center"> {/* z-10 поверх изображения */}
-            <div className="max-w-screen-xl mx-auto w-full">
-              <div className="lg:flex justify-between">
-                {/* Левая часть с текстом */}
-                <div className="flex-col lg:w-1/2  rounded-xl"> {/* Добавляем прозрачный фон */}
-                  <h1 className="lg:text-6xl text-5xl font-bold">10 лет ремонтируем квартиры в Израиле</h1>
-                  <p className="mt-2 text-xl py-4">Превращаем вашу квартиру в дом мечты – с гарантией качества!</p>
-                  
 
-                </div>
-                
-                <div className="lg:w-1/2 flex flex-col  lg:p-8 rounded-xl lg:ml-8"> {/* Добавляем прозрачный фон */}
-                  <p className="hidden lg:block py-4 ">Ремонт квартир под ключ с гарантией. Фиксированные цены без скрытых доплат...</p>
-                  <div className="mt-6">
-                    <a href="" className="bg-[#E8FDFF] font-semibold lg:text-xl text-md p-4 text-[#259FD4] rounded-xl">
-                      под ключ от 1500 ₪ /м²
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="absolute bg-[#FFCA3B] lg:w-[180px] lg:h-[180px] w-24 h-24 rounded-2xl flex flex-col justify-center items-center lg:bottom-12 lg:right-76 z-20 bottom-32 right-5">
-              <svg xmlns="http://www.w3.org/2000/svg" width="67" height="67" viewBox="0 0 67 67" fill="none">
-                <path d="M16.75 50.25L50.25 16.75M50.25 16.75H25.125M50.25 16.75V41.875" stroke="#2F2929" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <p className="font-semibold lg:text-lg text-xs lg:ml-8 ml-4 mb-3 lg:mb-0">Рассчитать стоимость</p>
-          </div>
-        </div>
-      </section>
-      <section className="py-8 w-full">
-        <div className="relative max-w-screen-xl lg:mx-auto px-4  items-center">
-            <h1 className="text-4xl font-bold py-4">Персональные проекты под ваш стиль и бюджет</h1>
-            <p className="text-xl font-medium">Услуги по проектированию — Продуманный проект — залог идеального ремонта</p>
-            <div className="lg:grid lg:grid-cols-3 flex mt-5 pt-8 gap-4 overflow-x-auto ">
-              <div className="  min-w-96 w-full border border-[#D0EEDF] p-6 rounded-xl">
-                <h2 className="font-semibold text-lg">Покраска квартиры</h2>
-                <h2 className="font-bold text-3xl mt-2">Бесплатно</h2>
-                <p className=" text-lg text-gray-500 mt-4">
-                Проект передаётся клиенту бесплатно — при условии заключения договора на ремонт
-                </p>
-                
-                <div className="mt-12 mb-4">
-                  <button className="bg-[#E8F6EF] w-full text-md font-bold py-5 px-10 rounded-2xl hover:opacity-90 transition-opacity duration-300">
-                    <a href="">Позвонить</a>
-                  </button>
-                </div>
+      <HeroSection />
+      
+      <ProjectCards />
 
-                <div className="">
-                  <div className="flex items-center py-4">
-                    <span className="text-white font-bold text-xs bg-[#3CB473] py-1.5 px-2.5 rounded-lg">
-                      ✓	
-                    </span>
-                    <p className="text-lg text-black font-medium ml-2">Выезд дизайнера на объект</p>
-                  </div>
-                  <div className="flex items-center py-4">
-                    <span className="text-white font-bold text-xs bg-[#3CB473] py-1.5 px-2.5 rounded-lg">
-                      ✓	
-                    </span>
-                    <p className="text-lg text-black font-medium ml-2">Выезд дизайнера на объект</p>
-                  </div>
-                  <div className="flex items-center py-4">
-                    <span className="text-white font-bold text-xs bg-[#3CB473] py-1.5 px-2.5 rounded-lg">
-                      ✓	
-                    </span>
-                    <p className="text-lg text-black font-medium ml-2">Выезд дизайнера на объект</p>
-                  </div>
-                  <div className="flex items-center py-4">
-                    <span className="text-white font-bold text-xs bg-[#3CB473] py-1.5 px-2.5 rounded-lg">
-                      ✓	
-                    </span>
-                    <p className="text-lg text-black font-medium ml-2">Выезд дизайнера на объект</p>
-                  </div>
-                  <div className="flex items-center py-4">
-                    <span className="text-white font-bold text-xs bg-[#3CB473] py-1.5 px-2.5 rounded-lg">
-                      ✓	
-                    </span>
-                    <p className="text-lg text-black font-medium ml-2">Выезд дизайнера на объект</p>
-                  </div>
-                </div>
-              </div>
+      <CalculatorSection />
 
-            <div className="relative bg-[#D0EEDF] z-50 min-w-96 w-full border border-[#D0EEDF] p-6 rounded-xl overflow-visible">
-                <div className="absolute top-[-30px] mb-4 z-50 right-6 bg-[#FFCA3B] rounded-2xl p-3">
-                    <h3 className="text-black font-semibold">Выбирают 86% клиентов</h3>
-                </div>  
-                <h2 className="font-semibold text-lg">Покраска квартиры</h2>
-                <h2 className="font-bold text-3xl mt-2">Бесплатно</h2>
-                <p className=" text-lg text-gray-500 mt-4">
-                Проект передаётся клиенту бесплатно — при условии заключения договора на ремонт
-                </p>
-                
-                <div className="mt-12 mb-4">
-                  <button className="w-full bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] text-white text-md font-bold py-5 px-10 rounded-2xl shadow-md hover:opacity-90 transition-opacity duration-300">
-                    <a href="">Попробовать</a>
-                  </button>
-                </div>
-
-                <div>
-                  <div className="flex items-center py-4">
-                    <span className="text-white font-bold text-xs bg-[#3CB473] py-1.5 px-2.5 rounded-lg">
-                      ✓	
-                    </span>
-                    <p className="text-lg text-black font-medium ml-2">Выезд дизайнера на объект</p>
-                  </div>
-                  <div className="flex items-center py-4">
-                    <span className="text-white font-bold text-xs bg-[#3CB473] py-1.5 px-2.5 rounded-lg">
-                      ✓	
-                    </span>
-                    <p className="text-lg text-black font-medium ml-2">Выезд дизайнера на объект</p>
-                  </div>
-                  <div className="flex items-center py-4">
-                    <span className="text-white font-bold text-xs bg-[#3CB473] py-1.5 px-2.5 rounded-lg">
-                      ✓	
-                    </span>
-                    <p className="text-lg text-black font-medium ml-2">Выезд дизайнера на объект</p>
-                  </div>
-                  <div className="flex items-center py-4">
-                    <span className="text-white font-bold text-xs bg-[#3CB473] py-1.5 px-2.5 rounded-lg">
-                      ✓	
-                    </span>
-                    <p className="text-lg text-black font-medium ml-2">Выезд дизайнера на объект</p>
-                  </div>
-                  <div className="flex items-center py-4">
-                    <span className="text-white font-bold text-xs bg-[#3CB473] py-1.5 px-2.5 rounded-lg">
-                      ✓	
-                    </span>
-                    <p className="text-lg text-black font-medium ml-2">Выезд дизайнера на объект</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className=" min-w-96 w-full border border-[#D0EEDF] p-6 rounded-xl">
-
-                <h2 className="font-semibold text-lg">Покраска квартиры</h2>
-                <h2 className="font-bold text-3xl mt-2">Бесплатно</h2>
-                <p className=" text-lg text-gray-500 mt-4">
-                Проект передаётся клиенту бесплатно — при условии заключения договора на ремонт
-                </p>
-
-                <div className="mt-12 mb-4">
-                  <button className="bg-[#E8F6EF] w-full text-md font-bold py-5 px-10 rounded-2xl hover:opacity-90 transition-opacity duration-300">
-                    <a href="">Позвонить</a>
-                  </button>
-                </div>
-                <div>
-                  <div className="flex items-center py-4">
-                    <span className="text-white font-bold text-xs bg-[#3CB473] py-1.5 px-2.5 rounded-lg">
-                      ✓	
-                    </span>
-                    <p className="text-lg text-black font-medium ml-2">Выезд дизайнера на объект</p>
-                  </div>
-                  <div className="flex items-center py-4">
-                    <span className="text-white font-bold text-xs bg-[#3CB473] py-1.5 px-2.5 rounded-lg">
-                      ✓	
-                    </span>
-                    <p className="text-lg text-black font-medium ml-2">Выезд дизайнера на объект</p>
-                  </div>
-                  <div className="flex items-center py-4">
-                    <span className="text-white font-bold text-xs bg-[#3CB473] py-1.5 px-2.5 rounded-lg">
-                      ✓	
-                    </span>
-                    <p className="text-lg text-black font-medium ml-2">Выезд дизайнера на объект</p>
-                  </div>
-                  <div className="flex items-center py-4">
-                    <span className="text-white font-bold text-xs bg-[#3CB473] py-1.5 px-2.5 rounded-lg">
-                      ✓	
-                    </span>
-                    <p className="text-lg text-black font-medium ml-2">Выезд дизайнера на объект</p>
-                  </div>
-                  <div className="flex items-center py-4">
-                    <span className="text-white font-bold text-xs bg-[#3CB473] py-1.5 px-2.5 rounded-lg">
-                      ✓	
-                    </span>
-                    <p className="text-lg text-black font-medium ml-2">Выезд дизайнера на объект</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </div>
-      </section>
-      <section className="max-w-screen-xl lg:mx-auto px-4 py-8 ">
-        <div className="lg:flex justify-between items-center">
-              <h1 className="lg:text-3xl text-2xl font-bold py-4">Ввести метраж квартиры для расчета стоимости проектирования</h1>
-              <div className="flex">
-                <div className="flex mr-4 items-center">
-                  <input type="text" placeholder="142" className="py-5 lg:px-10 px-2 rounded-2xl bg-[#F5F5F5] " />
-                  <h3 className="text-lg font-semibold ml-2">м2</h3>
-                </div>
-                <div className="">
-                  <button className="bg-[#FFCA3B] text-md font-bold py-5 lg:px-10 px-4 rounded-2xl hover:opacity-90 transition-opacity duration-300">
-                    <a href="">Рассчитать</a>
-                  </button>
-                </div>
-              </div>
-        </div>
-      </section>
       <section className="max-w-screen-xl lg:mx-auto px-4 sm:px-0 py-10 ">
         <h1 className="text-4xl font-bold py-8">Очная консультация и техпроект</h1>
         <div className="flex overflow-hidden rounded-xl lg:h-[550px] h-[200px]">
@@ -340,7 +133,7 @@ export default function Home() {
             <div className="flex flex-col">
               <div className="relative z-10 bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] text-white rounded-full p-3 w-15 h-15 flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
-                  <path d="M9.33334 17.7548L13.6667 22.0708C14.4643 22.8653 15.7579 22.8653 16.5556 22.0708L26.6667 12" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M9.33334 17.7548L13.6667 22.0708C14.4643 22.8653 15.7579 22.8653 16.5556 22.0708L26.6667 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
               <h3 className="lg:text-lg text-md py-2 mt-2">Дизайнер приезжает на объект</h3>
@@ -398,8 +191,6 @@ export default function Home() {
                       <p className="text-xs mt-1">Операционный менеджер</p>
                     </div>
                   </div>
-                  
-
                   <div className="lg:w-3/5 lg:ml-4">
                     <div className="flex items-center">
                       <button className="bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] text-white text-xs font-bold py-2 px-4 rounded-2xl shadow-md hover:opacity-90 transition-opacity duration-300">
@@ -444,120 +235,9 @@ export default function Home() {
                 </div>
             </div>
       </section>
-      <section className="py-8 ">
-        <div className="max-w-screen-xl lg:mx-auto px-4 sm:px-0 items-center">
-            <h1 className="text-4xl font-bold py-4">Какой вид ремонта вас интересует?</h1>
-            <div className="lg:grid lg:grid-cols-2 gap-4 mt-3">
-            <div className="border border-[#D0EEDF] rounded-2xl p-4 w-full">
-                  <h2 className="text-2xl font-bold">Покраска квартиры</h2>
-                  <p className="text-[#909090] text-md ">Обновим интерьер вашей квартиры быстро и аккуратно</p>
-                  <img className="rounded-2xl mt-3 h-[300px] w-full object-cover" src="example.png" alt="" />
-                <div className="flex mt-4">
-                  <div className="columns-2 space-y-4">
-                    <div className="flex items-center py-2">
-                      <div className="m-2 bg-[#3CB473] min-h-[10px] min-w-[10px] max-h-[10px] max-w-[10px] rounded-full"></div>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex">
-                  <button className="w-2/8 mt-4 bg-[#E0FAEB] text-md font-bold py-5 px-2 rounded-2xl hover:opacity-90 transition-opacity duration-300">
-                    <a href="">от 35 дней</a>
-                  </button>
-                  
-                  <button className="w-2/8 mt-4 ml-2 bg-[#E0FAEB] text-md font-bold py-5 px-2 rounded-2xl hover:opacity-90 transition-opacity duration-300">
-                    <a href="">от 18 000 ₪</a>
-                  </button>
-                  
-                  <button className="w-4/8 mt-4 ml-2 bg-[#FFCA3B] text-md font-bold py-5 px-5 rounded-2xl hover:opacity-90 transition-opacity duration-300">
-                    <a href="">Получить консультацию</a>
-                  </button>
-                </div>
-              </div>
-              <div className="border border-[#D0EEDF] rounded-2xl p-4 w-full">
-                  <h2 className="text-2xl font-bold">Покраска квартиры</h2>
-                  <p className="text-[#909090] text-md ">Обновим интерьер вашей квартиры быстро и аккуратно</p>
-                  <img className="rounded-2xl mt-3 h-[300px] w-full object-cover" src="example.png" alt="" />
-                <div className="flex mt-4">
-                  <div className="columns-2 space-y-4">
-                    <div className="flex items-center py-2">
-                      <div className="m-2 bg-[#3CB473] min-h-[10px] min-w-[10px] max-h-[10px] max-w-[10px] rounded-full"></div>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex">
-                  <button className="w-2/8 mt-4 bg-[#E0FAEB] text-md font-bold py-5 px-2 rounded-2xl hover:opacity-90 transition-opacity duration-300">
-                    <a href="">от 35 дней</a>
-                  </button>
-                  
-                  <button className="w-2/8 mt-4 ml-2 bg-[#E0FAEB] text-md font-bold py-5 px-2 rounded-2xl hover:opacity-90 transition-opacity duration-300">
-                    <a href="">от 18 000 ₪</a>
-                  </button>
-                  
-                  <button className="w-4/8 mt-4 ml-2 bg-[#FFCA3B] text-md font-bold py-5 px-5 rounded-2xl hover:opacity-90 transition-opacity duration-300">
-                    <a href="">Получить консультацию</a>
-                  </button>
-                </div>
-              </div>
-              <div className="border border-[#D0EEDF] rounded-2xl p-4 w-full">
-                  <h2 className="text-2xl font-bold">Покраска квартиры</h2>
-                  <p className="text-[#909090] text-md ">Обновим интерьер вашей квартиры быстро и аккуратно</p>
-                  <img className="rounded-2xl mt-3 h-[300px] w-full object-cover" src="example.png" alt="" />
-                <div className="flex mt-4">
-                  <div className="columns-2 space-y-4">
-                    <div className="flex items-center py-2">
-                      <div className="m-2 bg-[#3CB473] min-h-[10px] min-w-[10px] max-h-[10px] max-w-[10px] rounded-full"></div>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex">
-                  <button className="w-2/8 mt-4 bg-[#E0FAEB] text-md font-bold py-5 px-2 rounded-2xl hover:opacity-90 transition-opacity duration-300">
-                    <a href="">от 35 дней</a>
-                  </button>
-                  
-                  <button className="w-2/8 mt-4 ml-2 bg-[#E0FAEB] text-md font-bold py-5 px-2 rounded-2xl hover:opacity-90 transition-opacity duration-300">
-                    <a href="">от 18 000 ₪</a>
-                  </button>
-                  
-                  <button className="w-4/8 mt-4 ml-2 bg-[#FFCA3B] text-md font-bold py-5 px-5 rounded-2xl hover:opacity-90 transition-opacity duration-300">
-                    <a href="">Получить консультацию</a>
-                  </button>
-                </div>
-              </div>
-              <div className="border border-[#D0EEDF] rounded-2xl p-4 w-full">
-                <h2 className="text-2xl font-bold">Покраска квартиры</h2>
-                <p className="text-[#909090] text-md ">Обновим интерьер вашей квартиры быстро и аккуратно</p>
-                
-                <img className="rounded-2xl mt-3 h-[300px] w-full object-cover" src="example.png" alt="" />
-                
-                <div className="flex mt-4">
-                  <div className="columns-2 space-y-4">
-                    <div className="flex items-center py-2">
-                      <div className="m-2 bg-[#3CB473] min-h-[10px] min-w-[10px] max-h-[10px] max-w-[10px] rounded-full"></div>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex">
-                  <button className="w-2/8 mt-4 bg-[#E0FAEB] text-md font-bold py-5 px-2 rounded-2xl hover:opacity-90 transition-opacity duration-300">
-                    <a href="">от 35 дней</a>
-                  </button>
-                  
-                  <button className="w-2/8 mt-4 ml-2 bg-[#E0FAEB] text-md font-bold py-5 px-2 rounded-2xl hover:opacity-90 transition-opacity duration-300">
-                    <a href="">от 18 000 ₪</a>
-                  </button>
-                  
-                  <button className="w-4/8 mt-4 ml-2 bg-[#FFCA3B] text-md font-bold py-5 px-5 rounded-2xl hover:opacity-90 transition-opacity duration-300">
-                    <a href="">Получить консультацию</a>
-                  </button>
-                </div>
-              </div>
-            </div>
-            
-        </div>
-      </section>
+
+      <PricingBlock />
+
       <section className="bg-[#E8F6EF] w-full ">
         <div className="lg:mx-auto px-4 sm:px-0 py-10 max-w-screen-xl">
           <div className="lg:flex">
@@ -669,12 +349,12 @@ export default function Home() {
               <div className="flex">
                 <div className="p-3 rounded-xl ">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M15 18L9 12L15 6" stroke="#4D4747" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15 18L9 12L15 6" stroke="#4D4747" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
                 <div className="p-3 rounded-xl bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] transition">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M9 18L15 12L9 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 18L15 12L9 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
               </div>
@@ -1180,12 +860,12 @@ export default function Home() {
               <div className="flex">
                 <div className="p-3 rounded-xl ">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M15 18L9 12L15 6" stroke="#4D4747" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15 18L9 12L15 6" stroke="#4D4747" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
                 <div className="p-3 rounded-xl bg-gradient-to-r from-[#B7E754] to-[#0BCAF0] transition">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M9 18L15 12L9 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 18L15 12L9 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
               </div>
@@ -1264,8 +944,6 @@ export default function Home() {
               </div>
   </div>
 </div>
-
-{/* Добавьте в ваш CSS или Tailwind конфиг */}
 <style jsx global>{`
   @keyframes scroll-horizontal {
     0% {
