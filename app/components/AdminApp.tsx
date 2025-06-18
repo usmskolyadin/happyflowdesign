@@ -23,7 +23,10 @@ import {
   email,
   BooleanField,
   ReferenceField,
-  FileInput, FileField
+  FileInput, FileField,
+  ImageInput,
+  ImageField,
+  EditButton
 } from "react-admin";
 import simpleRestProvider from "ra-data-simple-rest";
 import dataProvider from "../admin/dataProvider";
@@ -33,28 +36,28 @@ const validateEmail = [required("Email обязателен"), email()];
 const validatePositive = [required(), minValue(0)];
 const validatePrice = [required(), minValue(0), maxValue(1000000)];
 
-const UserList = (props: any) => (
-  <List {...props}>
-    <Datagrid rowClick="edit">
-      <TextField source="id" />
-      <TextField source="name" />
-      <TextField source="email" />
-      <TextField source="role" />
-      <DateField source="createdAt" />
-      <DateField source="updatedAt" />
-    </Datagrid>
-  </List>
-);
+// const UserList = (props: any) => (
+//   <List {...props}>
+//     <Datagrid rowClick="edit">
+//       <TextField source="id" />
+//       <TextField source="name" />
+//       <TextField source="email" />
+//       <TextField source="role" />
+//       <DateField source="createdAt" />
+//       <DateField source="updatedAt" />
+//     </Datagrid>
+//   </List>
+// );
 
-const UserEdit = (props: any) => (
-  <Edit {...props}>
-    <SimpleForm>
-      <TextInput source="name" validate={validateRequired} />
-      <TextInput source="email" validate={validateEmail} />
-      <TextInput source="role" validate={validateRequired} />
-    </SimpleForm>
-  </Edit>
-);
+// const UserEdit = (props: any) => (
+//   <Edit {...props}>
+//     <SimpleForm>
+//       <TextInput source="name" validate={validateRequired} />
+//       <TextInput source="email" validate={validateEmail} />
+//       <TextInput source="role" validate={validateRequired} />
+//     </SimpleForm>
+//   </Edit>
+// );
 
 const UserCreate = (props: any) => (
   <Create {...props}>
@@ -315,45 +318,97 @@ const PricingSectionList = () => (
   </List>
 );
 
-const PricingSectionEdit = () => (
-  <Edit>
-    <SimpleForm>
-      <TextInput source="title" />
-      <TextInput source="description" />
-      <TextInput source="image" />
-      <TextInput source="duration" />
-      <TextInput source="price" />
-      <NumberInput source="order" />
-      <ArrayInput source="features">
-        <SimpleFormIterator>
-          <TextInput label="Feature" source="0"/>
-        </SimpleFormIterator>
-      </ArrayInput>
-    </SimpleForm>
-  </Edit>
-);
-
-const PricingSectionCreate = () => (
+export const PricingSectionCreate = () => (
   <Create>
     <SimpleForm>
       <TextInput source="title" />
       <TextInput source="description" />
-      <TextInput source="image" />
+      <ImageInput source="image" accept="image/*">
+        <ImageField source="src" title="title" />
+      </ImageInput>
       <TextInput source="duration" />
       <TextInput source="price" />
       <NumberInput source="order" />
       <ArrayInput source="features">
         <SimpleFormIterator>
-          <TextInput label="Feature" source="0"/>
+          <TextInput label="Feature" />
         </SimpleFormIterator>
       </ArrayInput>
     </SimpleForm>
   </Create>
 );
 
+export const PricingSectionEdit = () => (
+  <Edit>
+    <SimpleForm>
+      <TextInput source="title" />
+      <TextInput source="description" />
+      <ImageInput source="image" >
+        <ImageField source="src" title="title" />
+      </ImageInput>
+      <TextInput source="duration" />
+      <TextInput source="price" />
+      <NumberInput source="order" />
+      <ArrayInput source="features">
+        <SimpleFormIterator>
+          <TextInput label="Feature" source={""} />
+        </SimpleFormIterator>
+      </ArrayInput>
+    </SimpleForm>
+  </Edit>
+);
+
+export const ExtraServiceBlockList = () => (
+  <List>
+    <Datagrid rowClick="edit">
+      <TextField source="id" />
+      <TextField source="title" />
+      <NumberField source="order" />
+      <EditButton />
+    </Datagrid>
+  </List>
+);
+
+export const ExtraServiceBlockCreate = () => (
+  <Create>
+    <SimpleForm>
+      <TextInput source="title" />
+      <TextInput source="description" />
+      <ImageInput source="image" accept="image/*">
+        <ImageField source="src" title="title" />
+      </ImageInput>
+      <NumberInput source="order" />
+      <ArrayInput source="features">
+        <SimpleFormIterator>
+          <TextInput label="Feature" />
+        </SimpleFormIterator>
+      </ArrayInput>
+    </SimpleForm>
+  </Create>
+);
+
+export const ExtraServiceBlockEdit = () => (
+  <Edit>
+    <SimpleForm>
+      <TextInput source="title" />
+      <TextInput source="description" />
+      <ImageInput source="image">
+        <ImageField source="src" title="title" />
+      </ImageInput>
+      <NumberInput source="order" />
+      <ArrayInput source="features">
+        <SimpleFormIterator>
+          <TextInput label="Feature" />
+        </SimpleFormIterator>
+      </ArrayInput>
+    </SimpleForm>
+  </Edit>
+);
+
+
 const AdminApp: React.FC = () => (
   <Admin dataProvider={dataProvider}>
-    <Resource name="users" list={UserList} edit={UserEdit} create={UserCreate} />
+    {/* <Resource name="users" list={UserList} edit={UserEdit} create={UserCreate} /> */}
     <Resource name="factors" list={FactorList} edit={FactorEdit} create={FactorCreate} />
     <Resource name="calculations" list={CalculationList} edit={CalculationEdit} create={CalculationCreate} />
     <Resource name="factorValues" list={FactorValueList} edit={FactorValueEdit} create={FactorValueCreate} />
@@ -361,6 +416,8 @@ const AdminApp: React.FC = () => (
     <Resource name="project-cards" list={ProjectCardList} edit={ProjectCardEdit} create={ProjectCardCreate} />
     <Resource name="pricings" list={PricingList} edit={PricingEdit} create={PricingCreate} />
     <Resource name="pricing-cards" list={PricingSectionList} edit={PricingSectionEdit} create={PricingSectionCreate} />
+    <Resource name="extra-service-blocks" list={ExtraServiceBlockList} edit={ExtraServiceBlockEdit} create={ExtraServiceBlockCreate}
+  />
   </Admin>
 );
 

@@ -15,7 +15,9 @@ const convertToFormData = (data: any) => {
   return formData;
 };
 
-const isFileUpload = (resource: string) => resource === "hero-sections";
+const isFileUpload = (resource: string) =>
+  resource === "hero-sections" || resource === "pricing-cards" || resource === 'extra-service-blocks';
+
 
 const uploadAwareProvider = {
   ...customDataProvider,

@@ -1,5 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/prisma';
+import { writeFile } from "fs/promises";
+import path from "path";
+import { v4 as uuidv4 } from "uuid";
+
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
@@ -24,17 +28,39 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
-  const d = await req.json();
+  const formData = await req.formData();
+  const image = formData.get("image") as File;
+  const title = formData.get("title") as string;
+  const description = formData.get("description") as string;
+  const duration = formData.get("duration") as string;
+  const price = formData.get("price") as string;
+  const order = parseInt(formData.get("order") as string) || 0;
+
+  const featuresRaw = [...formData.entries()]
+    .filter(([key]) => key.startsWith("features"))
+    .map(([_, value]) => value.toString());
+
+  let imageUrl = "";
+  if (image && typeof image.name === 'string' && image.size > 0) {
+    const bytes = await image.arrayBuffer();
+    const buffer = Buffer.from(bytes);
+    const fileName = `${uuidv4()}.${image.name.split(".").pop()}`;
+    const filePath = path.join(process.cwd(), "public", fileName);
+    await writeFile(filePath, buffer);
+    imageUrl = `/${fileName}`;
+  }
+
   const created = await prisma.pricingCard.create({
     data: {
-      title: d.title,
-      description: d.description,
-      image: d.image,
-      duration: d.duration,
-      price: d.price,
-      features: d.features,
-      order: d.order || 0,
+      title,
+      description,
+      duration,
+      price,
+      order,
+      features: featuresRaw,
+      image: imageUrl,
     },
   });
+
   return NextResponse.json(created, { status: 201 });
 }

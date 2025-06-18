@@ -81,3 +81,13 @@ model PricingCard {
   features    String[]   
   order       Int         @default(0)
 }
+
+model ExtraServiceBlock {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  listItems   String[] 
+  footerText  String
+  fileUrl     String
+  imageUrl    String
+}

@@ -13,59 +13,62 @@ const saveImage = async (file: File) => {
   return `/${fileName}`;
 };
 
-export async function GET(req: NextRequest, context: any) {
-  const { id } = context.params;
+export async function GET(req: NextRequest, context: { params: Promise<{ id: string }> }
+) {
+  const { id } = await context.params;
   const numId = parseInt(id, 10);
-  
-  if (isNaN(numId))
-    return NextResponse.json({ error: "Invalid ID" }, { status: 400 });
 
-  const item = await prisma.heroSection.findUnique({ where: { id: numId } });
-  if (!item) return NextResponse.json({ error: "Not found" }, { status: 404 });
+  if (isNaN(numId)) return NextResponse.json({ error: "Invalid ID" }, { status: 400 });
 
-  return NextResponse.json(item);
+  const card = await prisma.pricingCard.findUnique({ where: { id: numId } });
+  if (!card) return NextResponse.json({ error: "Not found" }, { status: 404 });
+
+  return NextResponse.json(card);
 }
 
-export async function PUT(req: NextRequest, context: any) {
-  const { id } = context.params;
-  const numId = parseInt(id, 10);
+export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
+  const id = parseInt(params.id, 10);
 
   const formData = await req.formData();
 
-  let imageUrl = formData.get("existingImageUrl") as string;
   const image = formData.get("image") as File | null;
-  if (image) {
+  let imageUrl = formData.get("existingImageUrl")?.toString() || "";
+
+  if (image && typeof image.name === "string" && image.size > 0) {
     imageUrl = await saveImage(image);
   }
 
   const title = formData.get("title") as string;
-  const subtitle = formData.get("subtitle") as string;
-  const buttonText = formData.get("buttonText") as string;
+  const description = formData.get("description") as string;
+  const duration = formData.get("duration") as string;
+  const price = formData.get("price") as string;
+  const order = parseInt(formData.get("order") as string) || 0;
 
-  try {
-    const updated = await prisma.heroSection.update({
-      where: { id: numId },
-      data: {
-        title,
-        subtitle,
-        buttonText,
-        imageUrl,
-      },
-    });
-    return NextResponse.json(updated);
-  } catch {
-    return NextResponse.json({ error: "Update failed" }, { status: 500 });
-  }
+  const featuresRaw = [...formData.entries()]
+    .filter(([key]) => key.startsWith("features"))
+    .map(([_, value]) => value.toString());
+
+  const updated = await prisma.pricingCard.update({
+    where: { id },
+    data: {
+      title,
+      description,
+      duration,
+      price,
+      image: imageUrl,
+      order,
+      features: featuresRaw,
+    },
+  });
+
+  return NextResponse.json(updated);
 }
 
-export async function DELETE(req: NextRequest, context: any) {
-  const { id } = context.params;
+export async function DELETE(req: NextRequest, context: { params: Promise<{ id: string }> }
+) {
+  const { id } = await context.params;
   const numId = parseInt(id, 10);
 
-  try {
-    await prisma.heroSection.delete({ where: { id: numId } });
-    return new Response(null, { status: 204 });
-  } catch {
-    return NextResponse.json({ error: "Delete failed" }, { status: 500 });
-  }
+  await prisma.pricingCard.delete({ where: { id: numId } });
+  return new Response(null, { status: 204 });
 }

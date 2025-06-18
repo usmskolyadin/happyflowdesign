@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <div className="">
       <div className="">
-        <header className="max-w-screen-xl max-w-screen-xl mx-auto py-2 px-4 lg:px-0">
+        <header className="hidden lg:block max-w-screen-xl max-w-screen-xl mx-auto py-2 px-4 lg:px-0">
           <nav className="flex items-center justify-between">
             <div className="flex items-center">
               <Image 
@@ -84,6 +84,41 @@ export default function Home() {
             </button>
           </nav>
         </header>
+        
+
+        <header className="lg:hidden max-w-screen-xl max-w-screen-xl mx-auto py-4 px-4 lg:px-0">
+          <nav className="flex items-center justify-between"  >
+            <div className="flex items-center">
+              <Image 
+                src="/logo.png" 
+                width={86} 
+                height={86} 
+                alt="Логотип компании" 
+                className=""
+              />
+            </div>
+            <div className="flex">
+              <button className="mr-2 flex bg-[#E0FAEB] text-white text-md font-semibold py-4 px-5 rounded-2xl hover:opacity-90 transition-opacity duration-300 ">
+                <img className="max-w-[22px] max-w-[22px] min-w-[22px] min-w-[22px] mr-2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC3klEQVR4nO2ZSWgUURBAa9xB9KK4oiIKapb6E0aCt4joTcnFmGSqZiIuuXkVPM1RgjHzqyPBePGsEIxrUHLQQBDiQSO4oaAInowJioqo0PLHLUiW+R2mU8E8qGNDP+p3/apqgFlmmT6Skq5F4QEj9AEt3asU2gEziVRn83y0fNYIh6MDhUbM6examAlsaTm0xFi+8a/EKJnroJ2q9oY1aPnReBJ/ZPKcBa1U2IaVxtKzySQKYXk41UarQRtluboFaKm/KIm/cRm0gcInPCV+B4Em0PKrKCJoaajsTNMq0IIR+hgxI6Gx1AVaQKHnkUUKVSxdDxowlrqmImKEn4IGjHDzlDIi/Bk0gB28Ai1/j/6d8F3QghHujf6NKLrpk5KujViCH0AuNwfUEELCCA36iiQt7wFtGKEDnnfIFVBJCAljua/4Y8WHQSumLVuOlr4WWa2GyyW7CbSCQi0ed8h9PMWLQSOb5dhC94Ie30uvewY0khQqQ0ufis8MXarJ1cwDjZh8+qhnq3LOFQzQCI6xTZkkLOhdDdFtz/tFVGam4udi4oXvMau7WDcXtJGymfVG+LVnH9a94XzTItAGWq4wwu/8ZPjmWPeMy5YJ+KBbxaLwN2P5iWuRYpMxQWO12wX7FQAaHN0BYMC7JrinrrpFYSwyySCz21j64lcAeNj1Zmj5WhFHcihp0+n45hdfGc9AS92xbDRNnnb6HzNPGaERt1MouUxVe2Y7Cr8tpYwpHE3qKW+tXxdD689vSi2DLjtBY3VJZTDgjb6XZjQZHiipSEGmg1f4TJjRCgC/h9h+UQh1lk6E+iFOKoWO+MwzpmiR9F6Im6p8ZpvnpBlOGJYDmC7cCGyETxa90JDxJKhHxQTqSrQRvhMxEw+rhZaCGkJIVArt9zluKPTYzUOgkhASKLwPhW4VWngZNxN9qdbG5TAT2NqeWfarK77gfhi534Ao9NJYPu7G7Ol+v1n+W34Ax4nV0qk+7yAAAAAASUVORK5CYII=" alt="phone"></img>
+                <a href="" className="text-[#2F915C]">Оставить заявку</a>
+              </button>
+              <button>
+                <svg width="54" height="54" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1" y="1" width="94" height="94" rx="20" stroke="#A7E3C7" stroke-width="2" fill="none"/>
+
+                  <rect x="30" y="30" width="36" height="4" rx="2" fill="#27AE60"/>
+                  
+                  <rect x="42" y="40" width="24" height="4" rx="2" fill="#27AE60"/>
+                  
+                  <rect x="30" y="50" width="36" height="4" rx="2" fill="#27AE60"/>
+                  
+                  <rect x="42" y="60" width="24" height="4" rx="2" fill="#27AE60"/>
+                </svg>
+              </button>
+            </div>
+          </nav>
+        </header>
+
         <nav className="border border-[#E4ECF1] mx-auto py-3 hidden lg:block">
           <div className="flex justify-between max-w-screen-xl mx-auto">
             {
@@ -959,7 +994,7 @@ export default function Home() {
 `}</style>
         </div>
       </section>
-      <section className="py-8 ">
+      <section className="py-8 hidden">
         <div className="mx-auto lg:mx-auto px-4 lg:px-0 items-center">
             <h1 className="text-4xl font-bold py-4 max-w-screen-xl mx-auto">Популярный керамогранит 2025</h1>
             <div className="bg-[#E8F6EF] overflow-hidden">
