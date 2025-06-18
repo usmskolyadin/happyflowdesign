@@ -4,10 +4,9 @@ import { NextRequest, NextResponse } from "next/server";
 const prisma = new PrismaClient();
 
 export async function GET(
-  _req: NextRequest,
-  context: { params: { id: string } } // context must be named `context`
-) {
-  const id = parseInt(context.params.id, 10);
+  _req: NextRequest, context: { params: Promise<{ id: string }> }) {
+  const params = await context.params;
+  const id = Number(params.id);
 
   if (isNaN(id)) {
     return NextResponse.json({ error: "Invalid ID" }, { status: 400 });
@@ -28,10 +27,9 @@ export async function GET(
 }
 
 export async function PUT(
-  req: NextRequest,
-  { params }: { params: { id: string } }
-) {
-  const id = parseInt(params.id, 10);
+  req: NextRequest, context: { params: Promise<{ id: string }> }) {
+  const params = await context.params;
+  const id = Number(params.id);
   if (isNaN(id)) {
     return NextResponse.json({ error: "Invalid ID" }, { status: 400 });
   }
@@ -50,10 +48,9 @@ export async function PUT(
 }
 
 export async function DELETE(
-  _req: NextRequest,
-  { params }: { params: { id: string } }
-) {
-  const id = parseInt(params.id, 10);
+  _req: NextRequest, context: { params: Promise<{ id: string }> }) {
+  const params = await context.params;
+  const id = Number(params.id);
   if (isNaN(id)) {
     return NextResponse.json({ error: "Invalid ID" }, { status: 400 });
   }

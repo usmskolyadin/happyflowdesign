@@ -323,7 +323,7 @@ export const PricingSectionCreate = () => (
     <SimpleForm>
       <TextInput source="title" />
       <TextInput source="description" />
-      <ImageInput source="image" accept="image/*">
+      <ImageInput source="image">
         <ImageField source="src" title="title" />
       </ImageInput>
       <TextInput source="duration" />
@@ -331,7 +331,7 @@ export const PricingSectionCreate = () => (
       <NumberInput source="order" />
       <ArrayInput source="features">
         <SimpleFormIterator>
-          <TextInput label="Feature" />
+          <TextInput label="Feature" source={""} />
         </SimpleFormIterator>
       </ArrayInput>
     </SimpleForm>
@@ -374,13 +374,13 @@ export const ExtraServiceBlockCreate = () => (
     <SimpleForm>
       <TextInput source="title" />
       <TextInput source="description" />
-      <ImageInput source="image" accept="image/*">
+      <ImageInput source="image">
         <ImageField source="src" title="title" />
       </ImageInput>
       <NumberInput source="order" />
       <ArrayInput source="features">
         <SimpleFormIterator>
-          <TextInput label="Feature" />
+          <TextInput label="Feature" source={""} />
         </SimpleFormIterator>
       </ArrayInput>
     </SimpleForm>
@@ -398,7 +398,7 @@ export const ExtraServiceBlockEdit = () => (
       <NumberInput source="order" />
       <ArrayInput source="features">
         <SimpleFormIterator>
-          <TextInput label="Feature" />
+          <TextInput label="Feature" source={""} />
         </SimpleFormIterator>
       </ArrayInput>
     </SimpleForm>

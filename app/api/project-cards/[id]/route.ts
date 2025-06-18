@@ -2,10 +2,10 @@ import { prisma } from '@/prisma';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(
-  _req: NextRequest,
-  { params }: { params: { id: string } }
-) {
-  const id = parseInt(params.id, 10);
+  _req: NextRequest, context: { params: Promise<{ id: string }> }) {
+  const params = await context.params;
+  const id = Number(params.id);
+
   if (isNaN(id)) return NextResponse.json({ error: 'Invalid ID' }, { status: 400 });
 
   const card = await prisma.projectCard.findUnique({ where: { id } });
@@ -15,10 +15,9 @@ export async function GET(
 }
 
 export async function PUT(
-  req: NextRequest,
-  { params }: { params: { id: string } }
-) {
-  const id = parseInt(params.id, 10);
+  req: NextRequest, context: { params: Promise<{ id: string }> }) {
+  const params = await context.params;
+  const id = Number(params.id);
   if (isNaN(id)) return NextResponse.json({ error: 'Invalid ID' }, { status: 400 });
 
   const data = await req.json();
@@ -32,10 +31,9 @@ export async function PUT(
 }
 
 export async function DELETE(
-  _req: NextRequest,
-  { params }: { params: { id: string } }
-) {
-  const id = parseInt(params.id, 10);
+  _req: NextRequest, context: { params: Promise<{ id: string }> }) {
+  const params = await context.params;
+  const id = Number(params.id);
   if (isNaN(id)) return NextResponse.json({ error: 'Invalid ID' }, { status: 400 });
 
   try {

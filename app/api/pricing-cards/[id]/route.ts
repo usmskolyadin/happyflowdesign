@@ -26,8 +26,9 @@ export async function GET(req: NextRequest, context: { params: Promise<{ id: str
   return NextResponse.json(card);
 }
 
-export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
-  const id = parseInt(params.id, 10);
+export async function PUT(req: NextRequest, context: { params: Promise<{ id: string }> }) {
+  const params = await context.params;
+  const id = Number(params.id);
 
   const formData = await req.formData();
 

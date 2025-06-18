@@ -13,14 +13,16 @@ const saveFile = async (file: File) => {
   return `/${fileName}`;
 };
 
-export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
-  const id = parseInt(params.id, 10);
+export async function GET(req: NextRequest, context: { params: Promise<{ id: string }> }) {
+  const params = await context.params;
+  const id = Number(params.id);
   const block = await prisma.extraServiceBlock.findUnique({ where: { id } });
   return block ? NextResponse.json(block) : NextResponse.json({ error: 'Not found' }, { status: 404 });
 }
 
-export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
-  const id = parseInt(params.id, 10);
+export async function PUT(req: NextRequest, context: { params: Promise<{ id: string }> }) {
+  const params = await context.params;
+  const id = Number(params.id);
   const formData = await req.formData();
 
   const title = formData.get('title')?.toString() || '';
@@ -51,8 +53,9 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
   return NextResponse.json(updated);
 }
 
-export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
-  const id = parseInt(params.id, 10);
+export async function DELETE(req: NextRequest, context: { params: Promise<{ id: string }> }) {
+  const params = await context.params;
+  const id = Number(params.id);
   await prisma.extraServiceBlock.delete({ where: { id } });
   return new Response(null, { status: 204 });
 }

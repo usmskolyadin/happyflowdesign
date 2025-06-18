@@ -54,13 +54,20 @@ export async function GET(req: NextRequest) {
     const sortOrder = sortOrderRaw?.toLowerCase() === "desc" ? "desc" : "asc";
 
     const total = await prismaModel.count({ where: filter });
-    const list = await prismaModel.findMany({
+    const list = await prisma.calculation.findMany({
       where: filter,
       skip: range[0],
       take: range[1] - range[0] + 1,
       orderBy: { [sortField]: sortOrder },
-      include: includeRelations[modelName],
+      include: {
+        factors: {
+          include: {
+            factor: true,
+          },
+        },
+      },
     });
+
 
     const res = NextResponse.json(list);
     res.headers.set("Content-Range", `calculations ${range[0]}-${range[1]}/${total}`);
