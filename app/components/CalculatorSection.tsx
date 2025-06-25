@@ -9,7 +9,7 @@ export default function CalculatorSection() {
 
   return (
     <>
-      <section className="max-w-screen-xl lg:mx-auto px-4 py-8">
+      <section className="max-w-screen-xl lg:mx-auto px-4 py-8" id="calculator">
         <div className="lg:flex justify-between items-center">
           <h1 className="lg:text-3xl text-2xl font-bold py-4">
             Ввести метраж квартиры для расчета стоимости проектирования

@@ -91,3 +91,34 @@ model ExtraServiceBlock {
   fileUrl     String
   imageUrl    String
 }
+
+model ReadyPackage {
+  id          Int      @id @default(autoincrement())
+  title       String
+  imageUrl    String
+  features    String[]
+  price       String
+  buttonText  String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model RepairType {
+  id    Int     @id @default(autoincrement())
+  name  String  
+  repairs Repair[]
+}
+
+model Repair {
+  id          Int        @id @default(autoincrement())
+  title       String
+  description String?
+  photos      String[]
+  typeId      Int
+  type        RepairType @relation(fields: [typeId], references: [id])
+  workList    String[]
+  price       Int?
+  area        Float?
+  duration    String
+  rooms       Int?
+}

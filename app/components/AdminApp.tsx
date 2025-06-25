@@ -405,21 +405,176 @@ export const ExtraServiceBlockEdit = () => (
   </Edit>
 );
 
+const ReadyPackageList = () => (
+  <List>
+    <Datagrid rowClick="edit">
+      <TextField source="id" />
+      <TextField source="title" />
+      <TextField source="price" />
+      <EditButton />
+    </Datagrid>
+  </List>
+);
+
+const ReadyPackageEdit = () => (
+  <Edit>
+    <SimpleForm >
+      <TextInput source="title" fullWidth />
+      <ImageInput source="image" label="Новое изображение" >
+        <ImageField source="src" title="title" />
+      </ImageInput>
+      {/* Важно: сохраняем текущее изображение, если новое не загружается */}
+      <TextInput source="existingImageUrl" label="Текущее изображение (сохраняется)" />
+      <ArrayInput source="features">
+        <SimpleFormIterator>
+          <TextInput label="Особенность" source={""} />
+        </SimpleFormIterator>
+      </ArrayInput>
+      <TextInput source="price" />
+      <TextInput source="buttonText" />
+    </SimpleForm>
+  </Edit>
+);
+
+const ReadyPackageCreate = () => (
+  <Create>
+    <SimpleForm>
+      <TextInput source="title" fullWidth />
+      <ImageInput source="image" label="Изображение" >
+        <ImageField source="src" title="title" />
+      </ImageInput>
+      <ArrayInput source="features">
+        <SimpleFormIterator>
+          <TextInput label="Особенность" source={""} />
+        </SimpleFormIterator>
+      </ArrayInput>
+      <TextInput source="price" />
+      <TextInput source="buttonText" />
+    </SimpleForm>
+  </Create>
+);
+
+export const RepairCreate = () => (
+  <Create>
+    <SimpleForm>
+      <TextInput source="title" fullWidth />
+      <ReferenceInput source="typeId" reference="repair-types">
+        <SelectInput optionText="name" />
+      </ReferenceInput>
+
+      <TextInput source="price" label="Цена (₽)" />
+      <TextInput source="area" label="Площадь (м²)" />
+      <TextInput source="duration" label="Срок выполнения (например, 30 дней)" />
+      <TextInput source="rooms" label="Количество комнат" />
+
+      <ArrayInput source="workList">
+        <SimpleFormIterator>
+          <TextInput label="Работа" source={""} />
+        </SimpleFormIterator>
+      </ArrayInput>
+
+      <ImageInput
+        source="photos"
+        label="Фото"
+        multiple
+      >
+        <ImageField source="src" title="title" />
+      </ImageInput>
+    </SimpleForm>
+  </Create>
+);
+
+
+export const RepairTypeList = () => (
+  <List>
+    <Datagrid>
+      <TextField source="id" />
+      <TextField source="name" />
+      <EditButton />
+    </Datagrid>
+  </List>
+);
+
+
+export const RepairTypeEdit = () => (
+  <Edit>
+    <SimpleForm>
+      <TextInput source="name" />
+    </SimpleForm>
+  </Edit>
+);
+
+export const RepairTypeCreate = () => (
+  <Create>
+    <SimpleForm>
+      <TextInput source="name" />
+    </SimpleForm>
+  </Create>
+);
+
+export const RepairEdit = () => (
+  <Edit>
+    <SimpleForm>
+      <TextInput source="title" fullWidth />
+      <ReferenceInput source="typeId" reference="repair-types">
+        <SelectInput optionText="name" />
+      </ReferenceInput>
+
+      <TextInput source="price" label="Цена (₪)" />
+      <TextInput source="area" label="Площадь (м²)" />
+      <TextInput source="duration" label="Срок выполнения" />
+      <TextInput source="rooms" label="Количество комнат" />
+
+      <ArrayInput source="workList">
+        <SimpleFormIterator>
+          <TextInput label="Работа" source={""} />
+        </SimpleFormIterator>
+      </ArrayInput>
+
+      <ImageInput
+        source="photos"
+        label="Добавить новые фото"
+        multiple
+      >
+        <ImageField source="src" title="title" />
+      </ImageInput>
+
+      <ArrayInput source="existingPhotos">
+        <SimpleFormIterator>
+          <TextInput label="Существующий URL" source={""} />
+        </SimpleFormIterator>
+      </ArrayInput>
+    </SimpleForm>
+  </Edit>
+);
+
+export const RepairList = () => (
+  <List>
+    <Datagrid rowClick="edit">
+      <TextField source="id" />
+      <TextField source="title" />
+      <TextField source="type.name" label="Тип ремонта" />
+      <EditButton />
+    </Datagrid>
+  </List>
+);
+
 
 const AdminApp: React.FC = () => (
   <Admin dataProvider={dataProvider}>
     {/* <Resource name="users" list={UserList} edit={UserEdit} create={UserCreate} /> */}
-    <Resource name="factors" list={FactorList} edit={FactorEdit} create={FactorCreate} />
-    <Resource name="calculations" list={CalculationList} edit={CalculationEdit} create={CalculationCreate} />
-    <Resource name="factorValues" list={FactorValueList} edit={FactorValueEdit} create={FactorValueCreate} />
+    {/* <Resource name="factors" list={FactorList} edit={FactorEdit} create={FactorCreate} /> */}
+    <Resource name="repairs" list={RepairList} edit={RepairEdit} create={RepairCreate} recordRepresentation="title" />
+    <Resource name="repair-types" list={RepairTypeList} edit={RepairTypeEdit} create={RepairTypeCreate} recordRepresentation="name"/>
+    {/* <Resource name="calculations" list={CalculationList} edit={CalculationEdit} create={CalculationCreate} /> */}
+    {/* <Resource name="factorValues" list={FactorValueList} edit={FactorValueEdit} create={FactorValueCreate} /> */}
     <Resource name="hero-sections" list={HeroList} edit={HeroEdit} create={HeroCreate} />
     <Resource name="project-cards" list={ProjectCardList} edit={ProjectCardEdit} create={ProjectCardCreate} />
     <Resource name="pricings" list={PricingList} edit={PricingEdit} create={PricingCreate} />
     <Resource name="pricing-cards" list={PricingSectionList} edit={PricingSectionEdit} create={PricingSectionCreate} />
-    <Resource name="extra-service-blocks" list={ExtraServiceBlockList} edit={ExtraServiceBlockEdit} create={ExtraServiceBlockCreate}
-  />
+    <Resource name="extra-service-blocks" list={ExtraServiceBlockList} edit={ExtraServiceBlockEdit} create={ExtraServiceBlockCreate} />
+    <Resource name="ready-packages" list={ReadyPackageList} edit={ReadyPackageEdit} create={ReadyPackageCreate} />
   </Admin>
 );
-
 
 export default AdminApp;

@@ -3,6 +3,7 @@ import { prisma } from '@/prisma';
 import { writeFile } from "fs/promises";
 import path from "path";
 import { v4 as uuidv4 } from "uuid";
+import { uploadToS3 } from '@/app/lib/s3';
 
 
 export async function GET(req: NextRequest) {
@@ -28,39 +29,50 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
-  const formData = await req.formData();
-  const image = formData.get("image") as File;
-  const title = formData.get("title") as string;
-  const description = formData.get("description") as string;
-  const duration = formData.get("duration") as string;
-  const price = formData.get("price") as string;
-  const order = parseInt(formData.get("order") as string) || 0;
+  try {
+    const formData = await req.formData();
+    const image = formData.get("image") as File;
+    const title = formData.get("title") as string;
+    const description = formData.get("description") as string;
+    const duration = formData.get("duration") as string;
+    const price = formData.get("price") as string;
+    const order = parseInt(formData.get("order") as string) || 0;
 
-  const featuresRaw = [...formData.entries()]
-    .filter(([key]) => key.startsWith("features"))
-    .map(([_, value]) => value.toString());
+    const featuresRaw = [...formData.entries()]
+      .filter(([key]) => key.startsWith("features"))
+      .map(([_, value]) => value.toString());
 
-  let imageUrl = "";
-  if (image && typeof image.name === 'string' && image.size > 0) {
-    const bytes = await image.arrayBuffer();
-    const buffer = Buffer.from(bytes);
-    const fileName = `${uuidv4()}.${image.name.split(".").pop()}`;
-    const filePath = path.join(process.cwd(), "public", fileName);
-    await writeFile(filePath, buffer);
-    imageUrl = `/${fileName}`;
+    let imageUrl = "";
+    if (image && typeof image.name === 'string' && image.size > 0) {
+      try {
+        imageUrl = await uploadToS3(image);
+      } catch (error) {
+        console.error('S3 upload error:', error);
+        return NextResponse.json(
+          { error: "Failed to upload image to S3" },
+          { status: 500 }
+        );
+      }
+    }
+
+    const created = await prisma.pricingCard.create({
+      data: {
+        title,
+        description,
+        duration,
+        price,
+        order,
+        features: featuresRaw,
+        image: imageUrl,
+      },
+    });
+
+    return NextResponse.json(created, { status: 201 });
+  } catch (error) {
+    console.error('Error in POST handler:', error);
+    return NextResponse.json(
+      { error: "Internal server error" },
+      { status: 500 }
+    );
   }
-
-  const created = await prisma.pricingCard.create({
-    data: {
-      title,
-      description,
-      duration,
-      price,
-      order,
-      features: featuresRaw,
-      image: imageUrl,
-    },
-  });
-
-  return NextResponse.json(created, { status: 201 });
 }

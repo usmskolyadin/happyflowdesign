@@ -20,7 +20,7 @@ export default function ProjectCards() {
   }, []);
 
   return (
-    <section className="py-8 w-full">
+    <section className="py-8 w-full " id="services">
       <div className="relative max-w-screen-xl lg:mx-auto px-4 items-center">
         <h1 className="text-4xl font-bold py-4">Персональные проекты под ваш стиль и бюджет</h1>
         <p className="text-xl font-medium">

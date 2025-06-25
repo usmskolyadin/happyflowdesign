@@ -3,6 +3,7 @@ import { prisma } from "@/prisma";
 import { writeFile } from "fs/promises";
 import path from "path";
 import { v4 as uuidv4 } from "uuid";
+import { uploadToS3 } from "@/app/lib/s3";
 
 const saveImage = async (file: File) => {
   const bytes = await file.arrayBuffer();
@@ -37,27 +38,43 @@ export async function GET(req: NextRequest) {
   return response;
 }
 
+
 export async function POST(req: NextRequest) {
   const formData = await req.formData();
   const image = formData.get("image") as File | null;
 
   let imageUrl = "";
   if (image) {
-    imageUrl = await saveImage(image);
+    try {
+      imageUrl = await uploadToS3(image);
+    } catch (error) {
+      console.error('S3 upload error:', error);
+      return NextResponse.json(
+        { error: "Failed to upload image" },
+        { status: 500 }
+      );
+    }
   }
 
   const title = formData.get("title") as string;
   const subtitle = formData.get("subtitle") as string;
   const buttonText = formData.get("buttonText") as string;
 
-  const created = await prisma.heroSection.create({
-    data: {
-      title,
-      subtitle,
-      buttonText,
-      imageUrl,
-    },
-  });
-
-  return NextResponse.json(created, { status: 201 });
+  try {
+    const created = await prisma.heroSection.create({
+      data: {
+        title,
+        subtitle,
+        buttonText,
+        imageUrl,
+      },
+    });
+    return NextResponse.json(created, { status: 201 });
+  } catch (error) {
+    console.error('Database error:', error);
+    return NextResponse.json(
+      { error: "Failed to create record" },
+      { status: 500 }
+    );
+  }
 }

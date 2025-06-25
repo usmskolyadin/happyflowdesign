@@ -3,6 +3,7 @@ import { prisma } from "@/prisma";
 import { writeFile } from "fs/promises";
 import path from "path";
 import { v4 as uuidv4 } from "uuid";
+import { uploadToS3 } from "@/app/lib/s3";
 
 const saveImage = async (file: File) => {
   const buffer = Buffer.from(await file.arrayBuffer());
@@ -40,7 +41,15 @@ export async function PUT(
   const image = formData.get("image") as File | null;
 
   if (image) {
-    imageUrl = await saveImage(image);
+    try {
+      imageUrl = await uploadToS3(image);
+    } catch (error) {
+      console.error('S3 upload error:', error);
+      return NextResponse.json(
+        { error: "Failed to upload image" },
+        { status: 500 }
+      );
+    }
   }
 
   const title = formData.get("title") as string;
@@ -53,8 +62,12 @@ export async function PUT(
       data: { title, subtitle, buttonText, imageUrl },
     });
     return NextResponse.json(updated);
-  } catch {
-    return NextResponse.json({ error: "Update failed" }, { status: 500 });
+  } catch (error) {
+    console.error('Database error:', error);
+    return NextResponse.json(
+      { error: "Update failed" },
+      { status: 500 }
+    );
   }
 }
 
